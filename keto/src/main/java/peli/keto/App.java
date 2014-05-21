@@ -1,13 +1,21 @@
 package peli.keto;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Peli peli = new Peli(2, 2);
+        peli.tulostaTilanne();
+        peli.liikuta();
+        peli.tulostaTilanne();
+        peli.liikuta();
+        peli.tulostaTilanne();
+        peli.liikuta();
+        peli.tulostaTilanne();
+        peli.liikuta();
+        peli.tulostaTilanne();
+        peli.liikuta();
+        peli.tulostaTilanne();
     }
 }
