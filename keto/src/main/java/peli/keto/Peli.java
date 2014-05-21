@@ -13,10 +13,15 @@ public class Peli {
         this.ruudut.tulostaRuudut();
         System.out.println("------------");
     }
-    public void liikuta(){
+    public void siirto(){
+        liikuAlas();
         if (!onkoPeliPaattynyt()){
             this.ruudut.arvoUusiRuutu();
         }
+    }
+    
+    public void liikuAlas(){
+        this.ruudut.liikutaRuutujaAlas();
     }
     
     public boolean onkoPeliPaattynyt(){

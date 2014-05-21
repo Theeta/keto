@@ -61,4 +61,32 @@ public class Ruudukko {
         }
         return true;
     }
+    
+    public void liikutaRuutua(Koordinaatit koordinaatit, Suunta suunta){
+        Ruutu eka = this.ruudut[koordinaatit.getX()][koordinaatit.getY()];
+        koordinaatit.liikuta(suunta);
+        Ruutu toka = this.ruudut[koordinaatit.getX()][koordinaatit.getY()];
+        
+        if (!eka.getVari().equals(Vari.TYHJA) && toka.getVari().equals(Vari.TYHJA)){
+            Vari vari = eka.getVari();
+            eka.setVari(Vari.TYHJA);
+            toka.setVari(vari);
+        }
+    }
+    
+    public void liikutaRuutujaAlas(){
+        Koordinaatit koordinaatit = new Koordinaatit(0,0);
+        
+        for (int i = 0; i < this.LEVEYS; i++){
+            koordinaatit.setX(i);
+            
+            for (int x = 0; x < this.KORKEUS; x++){
+                for (int j = this.KORKEUS -2; j >= 0; j--){
+                    koordinaatit.setY(j);
+                    liikutaRuutua(koordinaatit, Suunta.ALAS);
+                }
+            }
+            
+        }
+    }
 }
