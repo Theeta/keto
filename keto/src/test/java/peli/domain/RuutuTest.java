@@ -29,6 +29,19 @@ public class RuutuTest {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void getVariPalauttaaOikeanVarin() {
+        Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
+        assertEquals(Vari.PUNAINEN, ruutu.getVari());
+    }
+    
+    @Test
+    public void setVariMuuttaaVaria() {
+        Ruutu ruutu = new Ruutu(Vari.TYHJA);
+        ruutu.setVari(Vari.PUNAINEN);
+        assertEquals(Vari.PUNAINEN, ruutu.getVari());
+    }
 
     @Test
     public void arvoRuudunVariMuuttaaRuudunVaria() {

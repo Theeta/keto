@@ -31,6 +31,10 @@ public class Ruudukko {
     public Ruutu getRuutu(int x, int y) {
         return ruudut[x][y];
     }
+    
+    public void setRuutu(Ruutu ruutu, int x, int y) {
+        ruudut[x][y] = ruutu;
+    }
 
     public void tulostaRuudut() {
         for (int i = 0; i < this.KORKEUS; i++) {
@@ -62,7 +66,7 @@ public class Ruudukko {
         return true;
     }
     
-    public void liikutaRuutua(Koordinaatit koordinaatit, Suunta suunta){
+    private void liikutaRuutua(Koordinaatit koordinaatit, Suunta suunta){
         Ruutu eka = this.ruudut[koordinaatit.getX()][koordinaatit.getY()];
         koordinaatit.liikuta(suunta);
         Ruutu toka = this.ruudut[koordinaatit.getX()][koordinaatit.getY()];

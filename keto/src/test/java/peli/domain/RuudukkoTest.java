@@ -62,5 +62,37 @@ public class RuudukkoTest {
         assertEquals(true, ruudukko.onkoRuudukkoTaynna());
     }
     
+    @Test
+    public void liikutaRuutujaAlasLiikuttaaYhdenRuudunAlas() {
+        Ruudukko ruudukko = new Ruudukko(3,3);
+        Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
+        ruudukko.setRuutu(ruutu, 0, 0);
+        ruudukko.liikutaRuutujaAlas();
+        assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(0, 2).getVari());
+    }
+    
+    @Test
+    public void liikutaRuutujaAlasLiikuttaaKaksiPaallekkaistaRuutuaAlas() {
+        Ruudukko ruudukko = new Ruudukko(3,3);
+        Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
+        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        ruudukko.setRuutu(ruutu, 0, 0);
+        ruudukko.setRuutu(ruutu2, 0, 1);
+        ruudukko.liikutaRuutujaAlas();
+        assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(0, 1).getVari());
+        assertEquals(Vari.SININEN, ruudukko.getRuutu(0, 2).getVari());
+    }
+    
+    @Test
+    public void liikutaRuutujaAlasLiikuttaaKaksiVierekkaistaRuutuaAlas() {
+        Ruudukko ruudukko = new Ruudukko(3,3);
+        Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
+        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        ruudukko.setRuutu(ruutu, 0, 0);
+        ruudukko.setRuutu(ruutu2, 1, 0);
+        ruudukko.liikutaRuutujaAlas();
+        assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(0, 2).getVari());
+        assertEquals(Vari.SININEN, ruudukko.getRuutu(1, 2).getVari());
+    }
 
 }

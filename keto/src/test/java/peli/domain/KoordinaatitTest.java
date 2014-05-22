@@ -28,6 +28,22 @@ public class KoordinaatitTest {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void setXmuuttaaKoordinaattia() {
+        Koordinaatit koordinaatit = new Koordinaatit(1,1);
+        koordinaatit.setX(2);
+        assertEquals(2, koordinaatit.getX());
+        assertEquals(1, koordinaatit.getY());
+    }
+    
+    @Test
+    public void setYmuuttaaKoordinaattia() {
+        Koordinaatit koordinaatit = new Koordinaatit(1,1);
+        koordinaatit.setY(2);
+        assertEquals(1, koordinaatit.getX());
+        assertEquals(2, koordinaatit.getY());
+    }
 
     @Test
     public void liikutaYlosToimii() {
