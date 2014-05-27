@@ -93,4 +93,52 @@ public class Ruudukko {
             
         }
     }
+    
+    public void liikutaRuutujaYlos(){
+        Koordinaatit koordinaatit = new Koordinaatit(0,0);
+        
+        for (int i = 0; i < this.LEVEYS; i++){
+            koordinaatit.setX(i);
+            
+            for (int x = 0; x < this.KORKEUS; x++){
+                for (int j = 1; j < this.KORKEUS; j++){
+                    koordinaatit.setY(j);
+                    liikutaRuutua(koordinaatit, Suunta.YLOS);
+                }
+            }
+            
+        }
+    }
+    
+    public void liikutaRuutujaVasen(){
+        Koordinaatit koordinaatit = new Koordinaatit(0,0);
+        
+        for (int i = 0; i < this.KORKEUS; i++){
+            koordinaatit.setY(i);
+            
+            for (int x = 0; x < this.LEVEYS; x++){
+                for (int j = 1; j < this.LEVEYS; j++){
+                    koordinaatit.setX(j);
+                    liikutaRuutua(koordinaatit, Suunta.VASEN);
+                }
+            }
+            
+        }
+    }
+    
+    public void liikutaRuutujaOikea(){
+        Koordinaatit koordinaatit = new Koordinaatit(0,0);
+        
+        for (int i = 0; i < this.KORKEUS; i++){
+            koordinaatit.setY(i);
+            
+            for (int x = 0; x < this.LEVEYS; x++){
+                for (int j = this.LEVEYS -2; j >= 0; j--){
+                    koordinaatit.setX(j);
+                    liikutaRuutua(koordinaatit, Suunta.OIKEA);
+                }
+            }
+            
+        }
+    }
 }

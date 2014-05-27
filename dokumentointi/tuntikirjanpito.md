@@ -15,3 +15,5 @@
 22.5.2014 1h muutama testi lisää
 
 22.5.2014 0,5h dokumentaatio kuntoon
+
+27.5.2014 6h koodausta, käyttöliittymä, näppäimistönkuuntelija ja piirtoalusta
