@@ -4,7 +4,6 @@ package peli.gui;
 
 import java.awt.Container;
 import java.awt.Dimension;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -28,7 +27,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Keto");
-        frame.setPreferredSize(new Dimension(600, 600));
+        frame.setPreferredSize(new Dimension(650, 670));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         luoKomponentit(frame.getContentPane());
@@ -48,8 +47,12 @@ public class Kayttoliittyma implements Runnable {
         menubar.add(menu);
         
         JMenuItem uusiPeli = new JMenuItem("Uusi peli");
-        uusiPeli.addActionListener(new PeliKuuntelija(peli));
+        uusiPeli.addActionListener(new UusiPeliKuuntelija(peli));
         menu.add(uusiPeli);
+        
+        JMenuItem lopetaPeli = new JMenuItem("Lopeta");
+        lopetaPeli.addActionListener(new LopetaPeliKuuntelija());
+        menu.add(lopetaPeli);
         
         frame.setJMenuBar(menubar);
     }

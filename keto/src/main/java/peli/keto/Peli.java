@@ -4,49 +4,23 @@ package peli.keto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import peli.domain.Ruudukko;
+import peli.domain.Suunta;
 import peli.gui.Paivitettava;
 
 public class Peli implements ActionListener {
     private Ruudukko ruudut;
     private Paivitettava paivitettava;
+    private int leveys;
+    private int korkeus;
     
     public Peli(int leveys, int korkeus){
+        this.leveys = leveys;
+        this.korkeus = korkeus;
         this.ruudut = new Ruudukko(leveys, korkeus);
     }
-    public void tulostaTilanne(){
-        this.ruudut.tulostaRuudut();
-        System.out.println("------------");
-    }
-    public void siirto(){
-        liikuOikea();
-        if (!onkoPeliPaattynyt()){
-            this.ruudut.arvoUusiRuutu();
-        }
-    }
-    
-    public void liikuAlas(){
-        this.ruudut.liikutaRuutujaAlas();
-        if (!onkoPeliPaattynyt()){
-            this.ruudut.arvoUusiRuutu();
-        }
-    }
-    
-    public void liikuYlos(){
-        this.ruudut.liikutaRuutujaYlos();
-        if (!onkoPeliPaattynyt()){
-            this.ruudut.arvoUusiRuutu();
-        }
-    }
-    
-    public void liikuVasen(){
-        this.ruudut.liikutaRuutujaVasen();
-        if (!onkoPeliPaattynyt()){
-            this.ruudut.arvoUusiRuutu();
-        }
-    }
-    
-    public void liikuOikea(){
-        this.ruudut.liikutaRuutujaOikea();
+
+    public void siirto(Suunta suunta){
+        this.ruudut.liikutaKaikkiRuudut(suunta);
         if (!onkoPeliPaattynyt()){
             this.ruudut.arvoUusiRuutu();
         }
@@ -57,7 +31,8 @@ public class Peli implements ActionListener {
     }
     
     public void uusiPeli() {
-        
+        this.ruudut = new Ruudukko(leveys, korkeus);
+        this.paivitettava.paivita();
     }
     
     public void setPaivitettava(Paivitettava paivitettava) {

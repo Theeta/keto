@@ -18,14 +18,4 @@ public enum Vari {
             default: return Color.WHITE;
         }
     }
-    
-    public String tulostus(){
-        switch (this){
-            case TYHJA: return " ";
-            case SININEN: return "S";
-            case PUNAINEN: return "P";
-            case LIILA: return "L";
-            default: return "-";
-        }
-    }
 }

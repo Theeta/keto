@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        Peli peli = new Peli(4,4);
+        Peli peli = new Peli(6,6);
         
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(peli, 100);
         SwingUtilities.invokeLater(kayttoliittyma);

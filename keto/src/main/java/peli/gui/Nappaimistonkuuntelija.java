@@ -3,6 +3,7 @@ package peli.gui;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import peli.domain.Suunta;
 import peli.keto.Peli;
 
 public class Nappaimistonkuuntelija implements KeyListener {
@@ -24,19 +25,19 @@ public class Nappaimistonkuuntelija implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                peli.liikuYlos();
+                peli.siirto(Suunta.YLOS);
                 component.repaint();
                 break;
             case KeyEvent.VK_DOWN:
-                peli.liikuAlas();
+                peli.siirto(Suunta.ALAS);
                 component.repaint();
                 break;
             case KeyEvent.VK_LEFT:
-                peli.liikuVasen();
+                peli.siirto(Suunta.VASEN);
                 component.repaint();
                 break;
             case KeyEvent.VK_RIGHT:
-                peli.liikuOikea();
+                peli.siirto(Suunta.OIKEA);
                 component.repaint();
                 break;
         }
