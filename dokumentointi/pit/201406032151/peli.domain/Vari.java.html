@@ -1,0 +1,1217 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>Vari.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_1'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_2'></a>
+</td>
+<td class=''><pre><span  class=''>package peli.domain;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_3'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_4'></a>
+</td>
+<td class=''><pre><span  class=''>import java.awt.Color;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_5'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_6'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_7'></a>
+</td>
+<td class=''><pre><span  class=''> * Enumia k&#228;ytet&#228;&#228;n v&#228;rien ilmaisemiseen ja se tarjoaa metodeja v&#228;rin esitt&#228;miseen graafisessa muodossa sek&#228; v&#228;rien sekoittamiseen.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_8'></a>
+</td>
+<td class=''><pre><span  class=''> * @author noora</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_9'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_10'></a>
+</td>
+<td class='covered'><pre><span  class=''>public enum Vari {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_11'></a>
+</td>
+<td class='covered'><pre><span  class=''>    TYHJA,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_12'></a>
+</td>
+<td class='covered'><pre><span  class=''>    SININEN,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_13'></a>
+</td>
+<td class='covered'><pre><span  class=''>    PUNAINEN,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_14'></a>
+</td>
+<td class='covered'><pre><span  class=''>    LIILA,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_15'></a>
+</td>
+<td class='covered'><pre><span  class=''>    KELTAINEN,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_16'></a>
+</td>
+<td class='covered'><pre><span  class=''>    VIHREA,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_17'></a>
+</td>
+<td class='covered'><pre><span  class=''>    ORANSSI;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_18'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_19'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_20'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodi kertoo mill&#228; v&#228;rikoodilla kukin v&#228;ri esitet&#228;&#228;n ruudulla.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_21'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return Palauttaa v&#228;rin ilmaisemiseen k&#228;ytett&#228;v&#228;n v&#228;rikoodin.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_22'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_23'></a>
+</td>
+<td class=''><pre><span  class=''>    public Color varinVari() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_24'></a>
+</td>
+<td class='covered'><pre><span  class=''>        switch (this){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_25'/>
+25
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_25'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case TYHJA: return Color.WHITE;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_26'/>
+26
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_26'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case SININEN: return Color.BLUE;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_27'/>
+27
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_27'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case PUNAINEN: return Color.RED;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_28'/>
+28
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_28'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case LIILA: return Color.MAGENTA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_29'/>
+29
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_29'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case KELTAINEN: return Color.YELLOW;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_30'/>
+30
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_30'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case VIHREA: return Color.GREEN;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_31'/>
+31
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_31'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case ORANSSI: return Color.ORANGE;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_32'/>
+32
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_32'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            default: return Color.WHITE;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_33'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_34'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_35'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_36'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_37'></a>
+</td>
+<td class=''><pre><span  class=''>     * Metodia k&#228;ytet&#228;&#228;n kahden v&#228;rin yhdist&#228;miseen.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_38'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param vari Kertoo mihin v&#228;riin jotakain v&#228;ri&#228; yritet&#228;&#228;n yhdist&#228;&#228;.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_39'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return Palautetaan tyhj&#228;, jos kyseisten v&#228;rien yhdist&#228;minen ei tuota uutta v&#228;ri&#228; ja muuten palautetaan yhdistelm&#228;v&#228;ri.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_40'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_41'></a>
+</td>
+<td class=''><pre><span  class=''>    public Vari varienYhdiste(Vari vari){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_42'></a>
+</td>
+<td class='covered'><pre><span  class=''>        switch (this){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_43'/>
+43
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_43'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case TYHJA: return Vari.TYHJA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_44'/>
+44
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_44'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case SININEN: if (vari.equals(Vari.PUNAINEN)){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_45'/>
+45
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_45'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.LIILA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_46'/>
+46
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_46'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            } else if (vari.equals(Vari.KELTAINEN)){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_47'/>
+47
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_47'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.VIHREA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_48'></a>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_49'/>
+49
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_49'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.TYHJA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_50'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_51'/>
+51
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_51'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case PUNAINEN: if (vari.equals(Vari.SININEN)){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_52'/>
+52
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_52'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.LIILA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_53'/>
+53
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_53'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            } else if (vari.equals(Vari.KELTAINEN)){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_54'/>
+54
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_54'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.ORANSSI;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_55'/>
+55
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_55'></a>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_56'/>
+56
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_56'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.TYHJA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_57'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_58'/>
+58
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_58'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case LIILA: return Vari.TYHJA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_59'/>
+59
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_59'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case KELTAINEN: if (vari.equals(Vari.SININEN)){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_60'/>
+60
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_60'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.VIHREA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_61'/>
+61
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_61'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            } else if (vari.equals(Vari.PUNAINEN)){</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_62'/>
+62
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_62'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.ORANSSI;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_63'></a>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_64'/>
+64
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_64'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return Vari.TYHJA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_65'/>
+65
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_65'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_66'/>
+66
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_66'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case VIHREA: return Vari.TYHJA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_67'/>
+67
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_67'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            case ORANSSI: return Vari.TYHJA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_68'/>
+68
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_68'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            default: return Vari.TYHJA;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_69'/>
+69
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_69'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_70'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5970e44c_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_71'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_25'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varinVari to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.tyhjaPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_26'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varinVari to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.sininenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_27'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varinVari to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.punainenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_28'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varinVari to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.liilaPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_29'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varinVari to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.keltainenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_30'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varinVari to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.vihreaPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_31'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varinVari to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.oranssiPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_32'/> 
+
+<p class='SURVIVED'>mutated return of Object value for peli/domain/Vari::varinVari to ( if (x != null) null else throw new RuntimeException ) : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_43'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.tyhjaYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_44'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> peli.domain.VariTest.sininenYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_45'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.sininenYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_46'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> peli.domain.VariTest.sininenYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_47'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.sininenYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_49'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.sininenYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_51'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> peli.domain.VariTest.punainenYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_52'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.punainenYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_53'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> peli.domain.VariTest.punainenYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_54'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.punainenYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_56'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.punainenYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_58'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.liilaYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_59'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> peli.domain.VariTest.keltainenYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_60'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.keltainenYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_61'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> peli.domain.VariTest.keltainenYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_62'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.keltainenYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_64'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.keltainenYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_66'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.vihreaYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_67'/> 
+
+<p class='KILLED'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : KILLED -> peli.domain.VariTest.oranssiYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5970e44c_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5970e44c_68'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for peli/domain/Vari::varienYhdiste to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>peli.domain.VariTest.punainenPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.tyhjaPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.keltainenYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest) (7 ms)</li><li>peli.domain.VariTest.vihreaYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest) (3 ms)</li><li>peli.domain.VariTest.oranssiYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.punainenYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.keltainenPalauttaaOikeanVarin(peli.domain.VariTest) (12 ms)</li><li>peli.domain.VariTest.oranssiYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.tyhjaYhdistettynaTyhjaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.punainenYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.punainenYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.liilaYhdistettynaTyhjaanPalauttaaOikeanVarin(peli.domain.VariTest) (8 ms)</li><li>peli.domain.VariTest.sininenYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.punainenYhdistettynaTyhjaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.tyhjaYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest) (292 ms)</li><li>peli.domain.VariTest.sininenYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.vihreaYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest) (3 ms)</li><li>peli.domain.VariTest.liilaYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (7 ms)</li><li>peli.domain.VariTest.keltainenYhdistettynaTyhjaanPalauttaaOikeanVarin(peli.domain.VariTest) (6 ms)</li><li>peli.domain.VariTest.sininenYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.oranssiYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.sininenYhdistettynaTyhjaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.keltainenYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.keltainenYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest) (7 ms)</li><li>peli.domain.VariTest.sininenYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.liilaYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.vihreaYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.vihreaYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest) (3 ms)</li><li>peli.domain.VariTest.sininenYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.sininenYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.punainenYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.liilaYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest) (9 ms)</li><li>peli.domain.VariTest.punainenYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.oranssiYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.liilaYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest) (7 ms)</li><li>peli.domain.VariTest.tyhjaYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest) (3 ms)</li><li>peli.domain.VariTest.keltainenYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest) (8 ms)</li><li>peli.domain.VariTest.tyhjaYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (6 ms)</li><li>peli.domain.VariTest.vihreaYhdistettynaVihreaanPalauttaaOikeanVarin(peli.domain.VariTest) (3 ms)</li><li>peli.domain.VariTest.liilaYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.liilaYhdistettynaOranssiinPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.RuudukkoTest.peli.domain.RuudukkoTest (31 ms)</li><li>peli.domain.VariTest.vihreaPalauttaaOikeanVarin(peli.domain.VariTest) (3 ms)</li><li>peli.domain.VariTest.vihreaYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (3 ms)</li><li>peli.domain.VariTest.keltainenYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (7 ms)</li><li>peli.domain.VariTest.oranssiYhdistettynaTyhjaanPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.punainenYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.oranssiYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.sininenPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.oranssiPalauttaaOikeanVarin(peli.domain.VariTest) (6 ms)</li><li>peli.domain.VariTest.vihreaYhdistettynaTyhjaanPalauttaaOikeanVarin(peli.domain.VariTest) (3 ms)</li><li>peli.domain.VariTest.oranssiYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.tyhjaYhdistettynaSiniseenPalauttaaOikeanVarin(peli.domain.VariTest) (6 ms)</li><li>peli.domain.VariTest.tyhjaYhdistettynaKeltaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li><li>peli.domain.VariTest.keltainenYhdistettynaPunaiseenPalauttaaOikeanVarin(peli.domain.VariTest) (6 ms)</li><li>peli.domain.VariTest.liilaPalauttaaOikeanVarin(peli.domain.VariTest) (5 ms)</li><li>peli.domain.VariTest.tyhjaYhdistettynaLiilaanPalauttaaOikeanVarin(peli.domain.VariTest) (4 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>

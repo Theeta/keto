@@ -23,3 +23,17 @@
 28.5.2014 2h testit äskeisen kohdan koodille
 
 28.5.2014 1h luokkakaavion yms. päivitys
+
+(1.6.2014 4h koodikatselmointi)
+
+2.6.2014 5h koodausta, lisää värejä, värien yhdistäminen, pisteenlasku
+
+2.6.2014 2h JavaDocin kirjoittamista
+
+3.6.2014 1h JavaDocin kirjoittamista
+
+3.6.2014 1h Muutama muutos koodiin saadun palautteen perusteella
+
+3.6.2014 3h lisää testejä
+
+3.6.2014 3h sekvenssikaaviot

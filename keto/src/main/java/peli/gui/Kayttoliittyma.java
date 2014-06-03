@@ -11,6 +11,10 @@ import javax.swing.JMenuItem;
 import javax.swing.WindowConstants;
 import peli.keto.Peli;
 
+/**
+ * Luokka tarjoaa metodeja käyttöliittymän piirtämiseen ruudulle.
+ * @author noora
+ */
 public class Kayttoliittyma implements Runnable {
     private JFrame frame;
     private Peli peli;
@@ -18,6 +22,11 @@ public class Kayttoliittyma implements Runnable {
     private JMenuBar menubar;
     private Piirtoalusta piirtoalusta;
     
+    /**
+     * Konstruktorissa uudelle käyttöliittymälle annetaan kyseinen peli ja yhden peliruudun haluttu leveys näytöllä.
+     * @param peli Kertoo kyseisen käynnissäolevan pelin.
+     * @param ruudunLeveys Kertoo minkä levyinen on yksi peliruudukon ruutu.
+     */
     public Kayttoliittyma(Peli peli, int ruudunLeveys) {
         this.peli = peli;
         this.ruudunLeveys = ruudunLeveys;
@@ -36,6 +45,10 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
+    /**
+     * Metodi luo käyttöliittymän tarvitsemat komponentit, piirtoalustan, näppäimistonkuuntelijan ja menubarin.
+     * @param contentPane 
+     */
     private void luoKomponentit(Container contentPane) {
         piirtoalusta = new Piirtoalusta(peli, ruudunLeveys);
         contentPane.add(piirtoalusta);

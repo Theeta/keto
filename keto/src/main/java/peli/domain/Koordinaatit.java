@@ -1,10 +1,21 @@
 package peli.domain;
 
+/**
+ * Luokkan olioita käytetään kappaleen sijainnin ilmaisemiseen kaksiuloitteisessa koordinaatistossa
+ * ja se sisältää metodeja tämän paikkatiedon käsittelyyn
+ * 
+ * @author noora
+ */
 public class Koordinaatit {
 
     private int x;
     private int y;
 
+    /**
+     * 
+     * @param x x-koordinaatti olion luontihetkellä
+     * @param y y-koordinaatti olion luontihetkellä
+     */
     public Koordinaatit(int x, int y) {
         this.x = x;
         this.y = y;
@@ -26,6 +37,10 @@ public class Koordinaatit {
         return this.y;
     }
 
+    /**
+     * Metodi muuttaa kappaleen koodinaatteja siten, että se liikkuu parametrina annettuun suuntaan
+     * @param suunta Kertoo mihin suuntaan halutaan liikkua
+     */
     public void liikuta(Suunta suunta) {
         switch (suunta) {
             case YLOS:

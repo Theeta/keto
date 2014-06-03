@@ -75,7 +75,7 @@ public class RuudukkoTest {
         boolean loytyy = false;
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                if (ruudukko.getRuutu(j, i).getVari().equals(Vari.PUNAINEN) || ruudukko.getRuutu(j, i).getVari().equals(Vari.SININEN)) {
+                if (ruudukko.getRuutu(j, i).getVari().equals(Vari.PUNAINEN) || ruudukko.getRuutu(j, i).getVari().equals(Vari.SININEN) || ruudukko.getRuutu(j, i).getVari().equals(Vari.KELTAINEN)) {
                     loytyy = true;
                 }
             }
@@ -127,7 +127,7 @@ public class RuudukkoTest {
     public void liikutaKaikkiRuudutAlasLiikuttaaKaksiPaallekkaistaRuutuaAlas() {
         Ruudukko ruudukko = new Ruudukko(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
-        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        Ruutu ruutu2 = new Ruutu(Vari.LIILA);
         Koordinaatit koordinaatit1 = new Koordinaatit(0, 0);
         Koordinaatit koordinaatit2 = new Koordinaatit(0, 1);
         Koordinaatit loppukoordinaatit1 = new Koordinaatit(0, 1);
@@ -136,7 +136,7 @@ public class RuudukkoTest {
         ruudukko.setRuutu(ruutu2, koordinaatit2);
         ruudukko.liikutaKaikkiRuudut(Suunta.ALAS);
         assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(loppukoordinaatit1).getVari());
-        assertEquals(Vari.SININEN, ruudukko.getRuutu(loppukoordinaatit2).getVari());
+        assertEquals(Vari.LIILA, ruudukko.getRuutu(loppukoordinaatit2).getVari());
     }
 
     @Test
@@ -149,6 +149,22 @@ public class RuudukkoTest {
         ruudukko.liikutaKaikkiRuudut(Suunta.ALAS);
         assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(new Koordinaatit(0, 2)).getVari());
         assertEquals(Vari.SININEN, ruudukko.getRuutu(new Koordinaatit(1, 2)).getVari());
+    }
+    
+    @Test
+    public void liikutaKaikkiRuudutAlasLiikuttaaKaksiPaallekkaistaRuutuaAlasJaYhdistaaNe() {
+        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
+        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        Koordinaatit koordinaatit1 = new Koordinaatit(0, 0);
+        Koordinaatit koordinaatit2 = new Koordinaatit(0, 1);
+        Koordinaatit loppukoordinaatit1 = new Koordinaatit(0, 1);
+        Koordinaatit loppukoordinaatit2 = new Koordinaatit(0, 2);
+        ruudukko.setRuutu(ruutu, koordinaatit1);
+        ruudukko.setRuutu(ruutu2, koordinaatit2);
+        ruudukko.liikutaKaikkiRuudut(Suunta.ALAS);
+        assertEquals(Vari.TYHJA, ruudukko.getRuutu(loppukoordinaatit1).getVari());
+        assertEquals(Vari.LIILA, ruudukko.getRuutu(loppukoordinaatit2).getVari());
     }
 
     @Test
@@ -166,7 +182,7 @@ public class RuudukkoTest {
     public void liikutaKaikkiRuudutYlosLiikuttaaKaksiPaallekkaistaRuutuaYlos() {
         Ruudukko ruudukko = new Ruudukko(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
-        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        Ruutu ruutu2 = new Ruutu(Vari.LIILA);
         Koordinaatit koordinaatit1 = new Koordinaatit(0, 1);
         Koordinaatit koordinaatit2 = new Koordinaatit(0, 2);
         Koordinaatit loppukoordinaatit1 = new Koordinaatit(0, 0);
@@ -175,7 +191,7 @@ public class RuudukkoTest {
         ruudukko.setRuutu(ruutu2, koordinaatit2);
         ruudukko.liikutaKaikkiRuudut(Suunta.YLOS);
         assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(loppukoordinaatit1).getVari());
-        assertEquals(Vari.SININEN, ruudukko.getRuutu(loppukoordinaatit2).getVari());
+        assertEquals(Vari.LIILA, ruudukko.getRuutu(loppukoordinaatit2).getVari());
     }
 
     @Test
@@ -188,6 +204,22 @@ public class RuudukkoTest {
         ruudukko.liikutaKaikkiRuudut(Suunta.YLOS);
         assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(new Koordinaatit(0, 0)).getVari());
         assertEquals(Vari.SININEN, ruudukko.getRuutu(new Koordinaatit(1, 0)).getVari());
+    }
+    
+    @Test
+    public void liikutaKaikkiRuudutYlosLiikuttaaKaksiPaallekkaistaRuutuaYlosJaYhdistaaNe() {
+        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
+        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        Koordinaatit koordinaatit1 = new Koordinaatit(0, 1);
+        Koordinaatit koordinaatit2 = new Koordinaatit(0, 2);
+        Koordinaatit loppukoordinaatit1 = new Koordinaatit(0, 0);
+        Koordinaatit loppukoordinaatit2 = new Koordinaatit(0, 1);
+        ruudukko.setRuutu(ruutu, koordinaatit1);
+        ruudukko.setRuutu(ruutu2, koordinaatit2);
+        ruudukko.liikutaKaikkiRuudut(Suunta.YLOS);
+        assertEquals(Vari.LIILA, ruudukko.getRuutu(loppukoordinaatit1).getVari());
+        assertEquals(Vari.TYHJA, ruudukko.getRuutu(loppukoordinaatit2).getVari());
     }
 
     @Test
@@ -221,13 +253,26 @@ public class RuudukkoTest {
     public void liikutaKaikkiRuudutVasenLiikuttaaKaksiVierekkaistaRuutuaVasemmalle() {
         Ruudukko ruudukko = new Ruudukko(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
-        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        Ruutu ruutu2 = new Ruutu(Vari.LIILA);
         ruudukko.setRuutu(ruutu, new Koordinaatit(1, 0));
         ruudukko.setRuutu(ruutu2, new Koordinaatit(2, 0));
         ruudukko.liikutaKaikkiRuudut(Suunta.VASEN);
         assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(new Koordinaatit(0, 0)).getVari());
-        assertEquals(Vari.SININEN, ruudukko.getRuutu(new Koordinaatit(1, 0)).getVari());
+        assertEquals(Vari.LIILA, ruudukko.getRuutu(new Koordinaatit(1, 0)).getVari());
     }
+    
+    @Test
+    public void liikutaKaikkiRuudutVasenLiikuttaaKaksiVierekkaistaRuutuaVasemmalleJaYhdistaaNe() {
+        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
+        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        ruudukko.setRuutu(ruutu, new Koordinaatit(1, 0));
+        ruudukko.setRuutu(ruutu2, new Koordinaatit(2, 0));
+        ruudukko.liikutaKaikkiRuudut(Suunta.VASEN);
+        assertEquals(Vari.LIILA, ruudukko.getRuutu(new Koordinaatit(0, 0)).getVari());
+        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(1, 0)).getVari());
+    }
+    
     @Test
     public void liikutaKaikkiRuudutOikeaLiikuttaaYhdenRuudunOikealle() {
         Ruudukko ruudukko = new Ruudukko(3,3);
@@ -259,12 +304,24 @@ public class RuudukkoTest {
     public void liikutaKaikkiRuudutOikeaLiikuttaaKaksiVierekkaistaRuutuaOikealle() {
         Ruudukko ruudukko = new Ruudukko(3,3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
-        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        Ruutu ruutu2 = new Ruutu(Vari.LIILA);
         ruudukko.setRuutu(ruutu, new Koordinaatit(0,0));
         ruudukko.setRuutu(ruutu2, new Koordinaatit(1,0));
         ruudukko.liikutaKaikkiRuudut(Suunta.OIKEA);
         assertEquals(Vari.PUNAINEN, ruudukko.getRuutu(new Koordinaatit(1,0)).getVari());
-        assertEquals(Vari.SININEN, ruudukko.getRuutu(new Koordinaatit(2,0)).getVari());
+        assertEquals(Vari.LIILA, ruudukko.getRuutu(new Koordinaatit(2,0)).getVari());
+    }
+    
+    @Test
+    public void liikutaKaikkiRuudutOikeaLiikuttaaKaksiVierekkaistaRuutuaOikealleJaYhdistaaNe() {
+        Ruudukko ruudukko = new Ruudukko(3,3);
+        Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
+        Ruutu ruutu2 = new Ruutu(Vari.SININEN);
+        ruudukko.setRuutu(ruutu, new Koordinaatit(0,0));
+        ruudukko.setRuutu(ruutu2, new Koordinaatit(1,0));
+        ruudukko.liikutaKaikkiRuudut(Suunta.OIKEA);
+        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(1,0)).getVari());
+        assertEquals(Vari.LIILA, ruudukko.getRuutu(new Koordinaatit(2,0)).getVari());
     }
     
     @Test
