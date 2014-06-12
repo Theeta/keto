@@ -5,7 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import peli.domain.Ruudukko;
 import peli.domain.Suunta;
+import peli.domain.Vari;
 import peli.gui.Paivitettava;
+//import peli.huipputulokset.Tuloslista;
 
 /**
  * Luokka tarjoaa metodeja peliolioiden käsittelyyn
@@ -14,21 +16,28 @@ import peli.gui.Paivitettava;
 public class Peli implements ActionListener {
     private Ruudukko ruudut;
     private Paivitettava paivitettava;
+    //private Tuloslista tuloslista;
     private int leveys;
     private int korkeus;
     private int pisteet;
+    private String pelaajanNimi;
 
     /**
      * Konstruktorille annetaan peliruudukon haluttu koko ruutuina korkeus- ja leveyssuunnassa.
      * Konstruktori luo uuden, halutunkokoisen ruudukon ja asettaa pistemäärän nollaksi.
      * @param leveys Keroo kuinka monta ruutua leveä peliruudukko on
      * @param korkeus Kertoo kuinka monta ruutua korkea peliruudukko on
+     * @param tiedostopolku Kertoo tuloslistan sijainnin
      */
-    public Peli(int leveys, int korkeus){
+    public Peli(int leveys, int korkeus, String tiedostopolku){
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.ruudut = new Ruudukko(leveys, korkeus);
+        ruudut.lisaaSallittuVari(Vari.SININEN);
+        ruudut.lisaaSallittuVari(Vari.PUNAINEN);
         this.pisteet = 0;
+        //this.tuloslista = new Tuloslista(10, tiedostopolku);
+        this.pelaajanNimi = "pelaaja";
     }
 
     /**
@@ -38,9 +47,26 @@ public class Peli implements ActionListener {
      * @param suunta Kertoo, mihin suuntaan peliruudukon ruutuja halutaan liikuttaa
      */
     public void siirto(Suunta suunta){
-        this.setPisteet(this.getPisteet() + this.ruudut.liikutaKaikkiRuudut(suunta));
+        this.pisteet += this.ruudut.liikutaKaikkiRuudut(suunta);
+        lisaaTarvittaessaSallittuVari();
+        
         if (!onkoPeliPaattynyt()){
             this.ruudut.arvoUusiRuutu();
+        } else {
+            lopetaPeli();
+        }
+    }
+
+    /**
+     * Metodi lisää tarvittaessa sallittujen värien listalle uuden värin. Tämä tapahtuu aina kun pelissä ylitetään tietty pistemäärä
+     */
+    private void lisaaTarvittaessaSallittuVari() {
+        if (pisteet > 50) {
+            this.ruudut.lisaaSallittuVari(Vari.KELTAINEN);
+            if (pisteet > 100) {
+                this.ruudut.lisaaSallittuVari(Vari.VALKOINEN);
+                
+            }
         }
     }
     
@@ -81,9 +107,17 @@ public class Peli implements ActionListener {
         this.pisteet = luku;
     }
 
+//    public Tuloslista getTuloslista() {
+//        return tuloslista;
+//    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         this.paivitettava.paivita();
+    }
+
+    private void lopetaPeli() {
+        //this.tuloslista.lisaaListalle(this.pelaajanNimi, this.pisteet);
     }
     
 }

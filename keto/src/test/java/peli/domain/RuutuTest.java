@@ -42,11 +42,4 @@ public class RuutuTest {
         ruutu.setVari(Vari.PUNAINEN);
         assertEquals(Vari.PUNAINEN, ruutu.getVari());
     }
-
-    @Test
-    public void arvoRuudunVariMuuttaaRuudunVaria() {
-        Ruutu ruutu = new Ruutu(Vari.TYHJA);
-        ruutu.arvoRuudunVari();
-        assertTrue(ruutu.getVari().equals(Vari.SININEN) || ruutu.getVari().equals(Vari.PUNAINEN) || ruutu.getVari().equals(Vari.KELTAINEN));
-    }
 }

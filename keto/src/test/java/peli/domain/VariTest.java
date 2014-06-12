@@ -14,7 +14,7 @@ public class VariTest {
     @Before
     public void setUp() {
     }
-
+    
     @Test
     public void punainenPalauttaaOikeanVarin() {
         assertEquals(Color.RED, Vari.PUNAINEN.varinVari());
@@ -26,7 +26,7 @@ public class VariTest {
     }
     @Test
     public void tyhjaPalauttaaOikeanVarin() {
-        assertEquals(Color.WHITE, Vari.TYHJA.varinVari());
+        assertEquals(Color.LIGHT_GRAY, Vari.TYHJA.varinVari());
     }
     @Test
     public void liilaPalauttaaOikeanVarin() {
@@ -46,6 +46,51 @@ public class VariTest {
     @Test
     public void oranssiPalauttaaOikeanVarin() {
         assertEquals(Color.ORANGE, Vari.ORANSSI.varinVari());
+    }
+    
+    @Test
+    public void valkoinenPalauttaaOikeanVarin() {
+        assertEquals(Color.WHITE, Vari.VALKOINEN.varinVari());
+    }
+    
+    @Test
+    public void tyhjaPalauttaaOikeanPistemaaran() {
+        assertEquals(0, Vari.TYHJA.varinPisteet());
+    }
+    
+    @Test
+    public void sininenPalauttaaOikeanPistemaaran() {
+        assertEquals(1, Vari.SININEN.varinPisteet());
+    }
+    
+    @Test
+    public void punainenPalauttaaOikeanPistemaaran() {
+        assertEquals(1, Vari.PUNAINEN.varinPisteet());
+    }
+    
+    @Test
+    public void liilaPalauttaaOikeanPistemaaran() {
+        assertEquals(2, Vari.LIILA.varinPisteet());
+    }
+    
+    @Test
+    public void keltainenPalauttaaOikeanPistemaaran() {
+        assertEquals(1, Vari.KELTAINEN.varinPisteet());
+    }
+    
+    @Test
+    public void vihreaPalauttaaOikeanPistemaaran() {
+        assertEquals(2, Vari.VIHREA.varinPisteet());
+    }
+    
+    @Test
+    public void oranssiPalauttaaOikeanPistemaaran() {
+        assertEquals(2, Vari.ORANSSI.varinPisteet());
+    }
+    
+    @Test
+    public void valkoinenPalauttaaOikeanPistemaaran() {
+        assertEquals(1, Vari.VALKOINEN.varinPisteet());
     }
     
     @Test
@@ -291,5 +336,40 @@ public class VariTest {
     @Test
     public void oranssiYhdistettynaOranssiinPalauttaaOikeanVarin() {
         assertEquals(Vari.TYHJA, Vari.ORANSSI.varienYhdiste(Vari.ORANSSI));
+    }
+    
+    @Test
+    public void valkoinenYhdistettynaPunaiseenPalauttaaOikeanVarin() {
+        assertEquals(Vari.TYHJA, Vari.VALKOINEN.varienYhdiste(Vari.PUNAINEN));
+    }
+    
+    @Test
+    public void valkoinenYhdistettynaSiniseenPalauttaaOikeanVarin() {
+        assertEquals(Vari.TYHJA, Vari.VALKOINEN.varienYhdiste(Vari.SININEN));
+    }
+    
+    @Test
+    public void valkoinenYhdistettynaTyhjaanPalauttaaOikeanVarin() {
+        assertEquals(Vari.TYHJA, Vari.VALKOINEN.varienYhdiste(Vari.TYHJA));
+    }
+    
+    @Test
+    public void valkoinenYhdistettynaLiilaanPalauttaaOikeanVarin() {
+        assertEquals(Vari.TYHJA, Vari.VALKOINEN.varienYhdiste(Vari.LIILA));
+    }
+    
+    @Test
+    public void valkoinenYhdistettynaKeltaiseenPalauttaaOikeanVarin() {
+        assertEquals(Vari.TYHJA, Vari.VALKOINEN.varienYhdiste(Vari.KELTAINEN));
+    }
+    
+    @Test
+    public void valkoinenYhdistettynaVihreaanPalauttaaOikeanVarin() {
+        assertEquals(Vari.TYHJA, Vari.VALKOINEN.varienYhdiste(Vari.VIHREA));
+    }
+    
+    @Test
+    public void ovalkoinenYhdistettynaOranssiinPalauttaaOikeanVarin() {
+        assertEquals(Vari.TYHJA, Vari.VALKOINEN.varienYhdiste(Vari.ORANSSI));
     }
 }

@@ -5,5 +5,3 @@
 **Tavoite:** Pelissä on tavoitteena kerätä mahdollisimman paljon pisteitä. Pisteitä saa aina kun onnistuu poistamaan nappuloita laudalta. Peli päättyy kun lauta tulee täyteen ja nappuloita ei enää ole mahdollista liikuttaa.
 
 **Kohderyhmä:** Peli on suunnattu henkilöille, jotka haluavat pelata tämän tyyppisiä pelejä. Pelin on tarkoitus olla säännöiltään helppo ja kestoltaan lyhyt, jotta siihen olisi helppo tarttua pieneksi hetkeksi. Erityisen hyvin peli soveltuisi mobiilipeliksi, mutta sellaista versiota ei tällä kurssilla ole tarkoitus toteuttaa.
-
-**Toiminnot:** Peliin tulee mahdollisuus uuden pelin aloittamiseen ja huipputulosten tarkasteluun.

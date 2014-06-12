@@ -26,20 +26,4 @@ public class Ruutu {
     public Vari getVari(){
         return this.vari;
     }
-    
-    /**
-     * Metodi arpoo ruudulle värin, joka voi olla sininen, keltainen tai punainen.
-     */
-    public void arvoRuudunVari(){
-        Random arpoja = new Random();
-        int luku = arpoja.nextInt(10);
-        if (luku < 3){
-            setVari(Vari.SININEN);
-        } else if (luku > 7){
-            setVari(Vari.KELTAINEN);
-        } else {
-            setVari(Vari.PUNAINEN);
-        }
-    }
-    
 }

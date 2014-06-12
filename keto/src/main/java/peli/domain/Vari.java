@@ -14,7 +14,8 @@ public enum Vari {
     LIILA,
     KELTAINEN,
     VIHREA,
-    ORANSSI;
+    ORANSSI,
+    VALKOINEN;
     
     /**
      * Metodi kertoo millä värikoodilla kukin väri esitetään ruudulla.
@@ -22,14 +23,33 @@ public enum Vari {
      */
     public Color varinVari() {
         switch (this){
-            case TYHJA: return Color.WHITE;
+            case TYHJA: return Color.LIGHT_GRAY;
             case SININEN: return Color.BLUE;
             case PUNAINEN: return Color.RED;
             case LIILA: return Color.MAGENTA;
             case KELTAINEN: return Color.YELLOW;
             case VIHREA: return Color.GREEN;
             case ORANSSI: return Color.ORANGE;
-            default: return Color.WHITE;
+            case VALKOINEN: return Color.WHITE;
+            default: return Color.LIGHT_GRAY;
+        }
+    }
+    
+    /**
+     * Metodi kertoo, kuinka monen pisteen arvoinen kukin väri on.
+     * @return Palauttaa väristä saatavan pistemäärän.
+     */
+    public int varinPisteet() {
+        switch (this){
+            case TYHJA: return 0;
+            case SININEN: return 1;
+            case PUNAINEN: return 1;
+            case LIILA: return 2;
+            case KELTAINEN: return 1;
+            case VIHREA: return 2;
+            case ORANSSI: return 2;
+            case VALKOINEN: return 1;
+            default: return 0;
         }
     }
     
@@ -65,6 +85,7 @@ public enum Vari {
             }
             case VIHREA: return Vari.TYHJA;
             case ORANSSI: return Vari.TYHJA;
+            case VALKOINEN: return Vari.TYHJA;
             default: return Vari.TYHJA;
         }
     }

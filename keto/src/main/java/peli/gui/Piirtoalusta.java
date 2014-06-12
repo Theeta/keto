@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
+import peli.domain.Koordinaatit;
 import peli.keto.Peli;
 
 /**
@@ -46,9 +47,12 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
      * @param g 
      */
     private void piirraRuudukko(Graphics g) {
+        Koordinaatit koordinaatit = new Koordinaatit(0,0);
         for (int i = 0; i < peli.getRuudukko().getLeveys(); i++) {
             for (int j = 0; j < peli.getRuudukko().getKorkeus(); j++) {
-                g.setColor(peli.getRuudukko().getRuutu(i, j).getVari().varinVari());
+                koordinaatit.setX(i);
+                koordinaatit.setY(j);
+                g.setColor(peli.getRuudukko().getRuutu(koordinaatit).getVari().varinVari());
                 g.fill3DRect(i*ruudunLeveys, j*ruudunLeveys, ruudunLeveys, ruudunLeveys, true);
                 g.setColor(Color.BLACK);
                 g.drawRect(i*ruudunLeveys, j*ruudunLeveys, ruudunLeveys, ruudunLeveys);
@@ -68,7 +72,13 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         g.setColor(Color.BLACK);
         g.setFont(new Font("a", Font.BOLD, 20));
         g.drawString("Pisteet: " + peli.getPisteet(), 30, peli.getRuudukko().getKorkeus() * ruudunLeveys + 30);
-        
+//        if (!peli.getTuloslista().getLista().isEmpty()){
+//            g.drawString("Tulokset:\n", 30, peli.getRuudukko().getKorkeus() * ruudunLeveys + 60);
+//            for (int i = 0; i < peli.getTuloslista().getLista().size(); i++){
+//                g.drawString(peli.getTuloslista().getLista().get(i).getNimi() +" "+ peli.getTuloslista().getLista().get(i).getPisteet(), 30, peli.getRuudukko().getKorkeus() * ruudunLeveys + 60 + (i*20));
+//            }
+//            
+//        }
     }
 
     /**

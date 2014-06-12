@@ -37,3 +37,11 @@
 3.6.2014 3h lisää testejä
 
 3.6.2014 3h sekvenssikaaviot
+
+12.6.2014 3h vaikeustason kasvu kun pistemäärä kasvaa ja muuta refaktorointia
+
+12.6.2014 3h huipputuloslistauksen tekemistä, ei tullut valmiiksi
+
+12.6.2014 2h lisää testejä
+
+12.6.2014 2h Uusi sekvenssikaavio ja vanhojen korjausta

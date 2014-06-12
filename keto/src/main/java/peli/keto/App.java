@@ -11,19 +11,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        Peli peli = new Peli(5,5);
+        Peli peli = new Peli(5,5, "tuloslista");
         
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(peli, 100);
         try {
             SwingUtilities.invokeAndWait(kayttoliittyma);
-//        SwingUtilities.invokeLater(kayttoliittyma);
-//        
-//        while (kayttoliittyma.getPaivitettava() == null) {
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException ex) {
-//            }
-//        }
+
         } catch (InterruptedException | InvocationTargetException ex) {
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
         }
