@@ -36,7 +36,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Keto");
-        frame.setPreferredSize(new Dimension(650, 670));
+        //frame.setPreferredSize(new Dimension(510, 660));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         luoKomponentit(frame.getContentPane());
@@ -62,6 +62,10 @@ public class Kayttoliittyma implements Runnable {
         JMenuItem uusiPeli = new JMenuItem("Uusi peli");
         uusiPeli.addActionListener(new UusiPeliKuuntelija(peli));
         menu.add(uusiPeli);
+        
+        JMenuItem huipputulokset = new JMenuItem("Huipputulokset");
+        huipputulokset.addActionListener(new TulosIkkuna(peli));
+        menu.add(huipputulokset);
         
         JMenuItem lopetaPeli = new JMenuItem("Lopeta");
         lopetaPeli.addActionListener(new LopetaPeliKuuntelija());
