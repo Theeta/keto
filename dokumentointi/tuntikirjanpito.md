@@ -45,3 +45,7 @@
 12.6.2014 2h lisää testejä
 
 12.6.2014 2h Uusi sekvenssikaavio ja vanhojen korjausta
+
+(15.6.2014 3h koodikatselmointi)
+
+16.6.2014 8h tuloslista toimimaan, kukkakuvien piirtäminen ja lisääminen peliin
