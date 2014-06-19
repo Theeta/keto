@@ -150,6 +150,10 @@ public class Peli implements ActionListener {
         return pelaajanNimi;
     }
 
+    public boolean isPaattynyt() {
+        return paattynyt;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         this.paivitettava.paivita();

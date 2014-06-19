@@ -436,7 +436,7 @@ public class RuudukkoTest {
     }
     
     @Test
-    public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenRivilla() {
+    public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenRivillaYhdistamisenTakia() {
         Ruudukko ruudukko = new Ruudukko(3,3);
         Ruutu pr = new Ruutu(Vari.PUNAINEN);
         Ruutu sr = new Ruutu(Vari.SININEN);
@@ -447,13 +447,33 @@ public class RuudukkoTest {
     }
     
     @Test
-    public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenSarakkeessa() {
+    public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenSarakkeessaYhdistamisenTakia() {
         Ruudukko ruudukko = new Ruudukko(3,3);
         Ruutu pr = new Ruutu(Vari.PUNAINEN);
         Ruutu sr = new Ruutu(Vari.SININEN);
         ruudukko.setRuutu(pr, new Koordinaatit(0,0));
         ruudukko.setRuutu(sr, new Koordinaatit(0,1));
         ruudukko.setRuutu(sr, new Koordinaatit(0,2));
+        assertEquals(true, ruudukko.onkoSiirtoMahdollinen());
+    }
+    
+    @Test
+    public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenRivillaPoistonTakia() {
+        Ruudukko ruudukko = new Ruudukko(3,3);
+        Ruutu pr = new Ruutu(Vari.PUNAINEN);
+        ruudukko.setRuutu(pr, new Koordinaatit(0,0));
+        ruudukko.setRuutu(pr, new Koordinaatit(1,0));
+        ruudukko.setRuutu(pr, new Koordinaatit(2,0));
+        assertEquals(true, ruudukko.onkoSiirtoMahdollinen());
+    }
+    
+    @Test
+    public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenSarakkeessaPoistonTakia() {
+        Ruudukko ruudukko = new Ruudukko(3,3);
+        Ruutu pr = new Ruutu(Vari.PUNAINEN);
+        ruudukko.setRuutu(pr, new Koordinaatit(0,0));
+        ruudukko.setRuutu(pr, new Koordinaatit(0,1));
+        ruudukko.setRuutu(pr, new Koordinaatit(0,2));
         assertEquals(true, ruudukko.onkoSiirtoMahdollinen());
     }
     

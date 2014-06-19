@@ -55,3 +55,7 @@
 19.6.2014 1h luokkakaavioon lisäyksiä
 
 19.6.2014 1h rakennekuvaus
+
+19.6.2014 3h lisää testejä
+
+19.6.2014 1h käyttöohje

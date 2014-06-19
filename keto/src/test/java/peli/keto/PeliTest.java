@@ -72,16 +72,6 @@ public class PeliTest {
         assertEquals(false, peli.onkoPeliPaattynyt());
     }
     
-//    @Test
-//    public void onkoPeliPaattynytToimiiKunRuudukkoOnTaynna() {
-//        Peli peli = new Peli(2,2, "testituloslista");
-//        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(0,0));
-//        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(0,1));
-//        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(1,0));
-//        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(1,1));
-//        assertEquals(true, peli.onkoPeliPaattynyt());
-//    }
-    
     @Test
     public void lisaaTarvittaessaSallittuVariToimiiKunPisteitaYliViisikymmenta() {
         Peli peli = new Peli(2,2, "testituloslista");
@@ -137,5 +127,44 @@ public class PeliTest {
         peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(2,0));
         peli.siirto(Suunta.OIKEA);
         assertEquals(3, peli.getPisteet());
+    }
+    
+    @Test
+    public void siirtoLopettaaPelinTarvittaessa() {
+        Peli peli = new Peli(3,3, "testituloslista");
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(0,0));
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.VAALEANKELTAINEN), new Koordinaatit(1,0));
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(2,0));
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.VAALEANKELTAINEN), new Koordinaatit(0,1));
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(1,1));
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.VAALEANKELTAINEN), new Koordinaatit(2,1));
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(0,2));
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.VAALEANKELTAINEN), new Koordinaatit(1,2));
+        peli.getRuudukko().setRuutu(new Ruutu(Vari.KELTAINEN), new Koordinaatit(2,2));
+        peli.siirto(Suunta.OIKEA);
+        assertTrue(peli.isPaattynyt());
+    }
+    
+    @Test
+    public void isAlkanutPalauttaaOikeinKunPeliOnAloitettu() {
+        Peli peli = new Peli(2,2, "testituloslista");
+        peli.setPaivitettava(new Piirtoalusta(peli, 5));
+        peli.uusiPeli("Matti");
+        assertTrue(peli.isAlkanut());
+    }
+    
+    @Test
+    public void isAlkanutPalauttaaOikeinKunPeliaEiOleAloitettu() {
+        Peli peli = new Peli(2,2, "testituloslista");
+        peli.setPaivitettava(new Piirtoalusta(peli, 5));
+        assertFalse(peli.isAlkanut());
+    }
+    
+    @Test
+    public void getPelaajanNimiPalauttaaNimen() {
+        Peli peli = new Peli(2,2, "testituloslista");
+        peli.setPaivitettava(new Piirtoalusta(peli, 5));
+        peli.uusiPeli("Matti");
+        assertEquals("Matti", peli.getPelaajanNimi());
     }
 }

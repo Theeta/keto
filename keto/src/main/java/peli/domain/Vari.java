@@ -165,7 +165,21 @@ public enum Vari {
                     return Vari.TYHJA;
                 }
             case VALKOINEN:
-                return Vari.TYHJA;
+                if (vari.equals(Vari.SININEN)){
+                    return Vari.VAALEANSININEN;
+                } else if (vari.equals(Vari.PUNAINEN)){
+                    return Vari.VAALEANPUNAINEN;
+                } else if (vari.equals(Vari.LIILA)){
+                    return Vari.VAALEANLIILA;
+                } else if (vari.equals(Vari.KELTAINEN)){
+                    return Vari.VAALEANKELTAINEN;
+                } else if (vari.equals(Vari.VIHREA)){
+                    return Vari.VAALEANVIHREA;
+                } else if (vari.equals(Vari.ORANSSI)){
+                    return Vari.VAALEANORANSSI;
+                } else {
+                    return Vari.TYHJA;
+                }
             case VAALEANSININEN:
                 return Vari.TYHJA;
             case VAALEANPUNAINEN:

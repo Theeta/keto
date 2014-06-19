@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Tuloslista {
 
-    private final List<Tulos> lista;
+    private List<Tulos> lista;
     private final int listanPituus;
     private final File tiedosto;
 
@@ -81,5 +81,13 @@ public class Tuloslista {
         } catch (IOException ex) {
         }
 
+    }
+    
+    /**
+     * Metodi tyhjentää tuloslistan ja poistaa tiedoston. Sitä käytetään testeissä
+     */
+    public void tyhjennaLista() {
+        this.lista = new ArrayList<>();
+        this.tiedosto.delete();
     }
 }
