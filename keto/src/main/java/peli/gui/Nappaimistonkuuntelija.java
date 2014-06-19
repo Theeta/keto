@@ -6,6 +6,10 @@ import java.awt.event.KeyListener;
 import peli.domain.Suunta;
 import peli.keto.Peli;
 
+/**
+ * Luokka tarjoaa metodit näppäimistönpainallusten kuunteluun.
+ * @author noora
+ */
 public class Nappaimistonkuuntelija implements KeyListener {
 
     private Peli peli;

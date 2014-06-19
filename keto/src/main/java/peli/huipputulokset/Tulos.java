@@ -1,9 +1,13 @@
 
 package peli.huipputulokset;
 
+/**
+ * Luokasta luodut oliot sisältävät pelaajan nimen ja pelin pistemäärän. Luokka sisältää metodeja näiden käsittelyä varten
+ * @author noora
+ */
 public class Tulos implements Comparable<Tulos> {
-    private String nimi;
-    private int pisteet;
+    private final String nimi;
+    private final int pisteet;
     
     public Tulos(String nimi, int pisteet){
         this.nimi = nimi;

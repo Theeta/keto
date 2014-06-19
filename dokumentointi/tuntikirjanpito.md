@@ -49,3 +49,9 @@
 (15.6.2014 3h koodikatselmointi)
 
 16.6.2014 8h tuloslista toimimaan, kukkakuvien piirtäminen ja lisääminen peliin
+
+18.6.2014 1h javadocien kirjoittamista
+
+19.6.2014 1h luokkakaavioon lisäyksiä
+
+19.6.2014 1h rakennekuvaus

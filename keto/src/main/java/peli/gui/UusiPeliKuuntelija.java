@@ -1,6 +1,7 @@
 
 package peli.gui;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
@@ -9,6 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import peli.keto.Peli;
 
+/**
+ * Luokka sisältää metodin, jonka avulla käyttäjä voi antaa nimensä ja aloittaa uuden pelin
+ * @author noora
+ */
 public class UusiPeliKuuntelija implements ActionListener {
     
     private Peli peli;
@@ -19,13 +24,9 @@ public class UusiPeliKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-//        JTextField kokoKentta = new JTextField(5);
-//        kokoKentta.setText("5");
         JTextField nimiKentta = new JTextField(5);
-        nimiKentta.setText("pelaaja");
+        nimiKentta.setText(peli.getPelaajanNimi());
         JPanel paneeli = new JPanel();
-//        paneeli.add(new JLabel("Pelin koko: "));
-//        paneeli.add(kokoKentta);
         paneeli.add(new JLabel("Nimi: "));
         paneeli.add(nimiKentta);
         
@@ -34,7 +35,8 @@ public class UusiPeliKuuntelija implements ActionListener {
             String nimi;
             try {
                 if (nimiKentta.getText().contains(":")){
-                    nimi = nimiKentta.getText().replace(":", " ");
+                    JOptionPane.showMessageDialog(null, "Nimi ei saa sisältää kaksoispistettä (:)");
+                    return;
                 }
                 if (nimiKentta.getText().isEmpty()){
                     nimi = "pelaaja";
@@ -43,8 +45,7 @@ public class UusiPeliKuuntelija implements ActionListener {
                 }
                 peli.uusiPeli(nimi);
             }
-            catch (Exception ex){
-                System.out.println("Ei saatu uutta peliä");
+            catch (HeadlessException ex){
             }
         }
     }

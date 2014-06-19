@@ -108,7 +108,7 @@ public enum Vari {
     /**
      * Metodia käytetään kahden värin yhdistämiseen.
      *
-     * @param vari Kertoo mihin väriin jotakain väriä yritetään yhdistää.
+     * @param vari Kertoo mihin väriin jotakin väriä yritetään yhdistää.
      * @return Palautetaan tyhjä, jos kyseisten värien yhdistäminen ei tuota
      * uutta väriä ja muuten palautetaan yhdistelmäväri.
      */

@@ -1,8 +1,6 @@
 
 package peli.domain;
 
-import java.util.Random;
-
 /**
  * Luokan oliot ovat peliruudukon ruutuja, joilla on ominaisuutena väri.
  * Luokka tarjoaa metodeja tämän ominaisuuden käsittelyyn.

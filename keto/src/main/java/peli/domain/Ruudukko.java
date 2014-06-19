@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Luokka sisältää tiedon peliruudukon ruuduista sekä tarjoaa metodeja
+ * Luokka sisältää tiedon peliruudukon ruutujen sisällöstä sekä tarjoaa metodeja
  * peliruudukon käsittelyyn. Luokka on vastuussa esimerkiksi ruutujen
  * liikuttamisesta haluttuun suuntaan ja ruutujen värin muuttamisesta tietyissä
  * tilanteissa. Luokka myös palauttaa pelipisteteitä kun ruudukosta saadaan
- * hävitettyä ruutuja.
+ * tyhjennettyä ruutuja.
  *
  * @author noora
  */
@@ -46,17 +46,7 @@ public class Ruudukko {
     }
 
     /**
-     * Metodi lisää uuden värin listaan, jolta arvotaan uuden ruudun väri
-     * @param vari Listaan lisättävä väri
-     */
-    public void lisaaSallittuVari(Vari vari) {
-        if (!sallitutVarit.contains(vari)) {
-            this.sallitutVarit.add(vari);
-        }
-    }
-
-    /**
-     * 
+     *
      * @return Palauttaa ruudukon leveyden ruutuina
      */
     public int getLeveys() {
@@ -64,7 +54,7 @@ public class Ruudukko {
     }
 
     /**
-     * 
+     *
      * @return Palauttaa ruudukon korkeuden ruutuina
      */
     public int getKorkeus() {
@@ -73,6 +63,7 @@ public class Ruudukko {
 
     /**
      * Metodi palauttaa tietyissä koordinaateissa sijaitevan ruudun
+     *
      * @param koordinaatit Kertoo mikä ruutu palautetaan
      * @return Palauttaa ruudun
      */
@@ -82,6 +73,7 @@ public class Ruudukko {
 
     /**
      * Metodi asettaa annetun ruudun annettuihin koordinaatteihin
+     *
      * @param ruutu Ruutu joka halutaan sijoittaa jonnekin
      * @param koordinaatit Ruudun haluttu sijainti
      */
@@ -90,7 +82,7 @@ public class Ruudukko {
     }
 
     /**
-     * 
+     *
      * @return Palauttaa listan väreistä, jotka voidaan arpoa uudelle ruudulle
      */
     public ArrayList<Vari> getSallitutVarit() {
@@ -99,7 +91,7 @@ public class Ruudukko {
 
     /**
      * Metodi poistaa annetuissa koordinaateissa sijaitsevan ruudun eli muuttaa
-     * sen tyhjäksi
+     * sen värin tyhjäksi
      *
      * @param koordinaatit Kertoo mikä ruutu halutaan poistaa
      */
@@ -110,7 +102,8 @@ public class Ruudukko {
 
     /**
      * Metodi tarkistaa, onko ruudukossa vielä tilaa ja arpoo sitten uusia
-     * ruudukon ruutuja, kunnes löytyy tyhjä ruutu. Sen jälkeen ruudulle arvotaan väri
+     * ruudukon ruutuja, kunnes löytyy tyhjä ruutu. Sen jälkeen ruudulle
+     * arvotaan väri
      *
      */
     public void arvoUusiRuutu() {
@@ -125,7 +118,19 @@ public class Ruudukko {
     }
 
     /**
+     * Metodi lisää uuden värin listaan, jolta arvotaan uuden ruudun väri
+     *
+     * @param vari Listaan lisättävä väri
+     */
+    public void lisaaSallittuVari(Vari vari) {
+        if (!sallitutVarit.contains(vari)) {
+            this.sallitutVarit.add(vari);
+        }
+    }
+
+    /**
      * Metodi arpoo annetulle ruudulle värin sallittujen värien listasta
+     *
      * @param ruutu Ruutu. jolle väri arvotaan
      */
     private void arvoRuudunVari(Ruutu ruutu) {
@@ -164,8 +169,32 @@ public class Ruudukko {
         if (onkoSiirtoMahdollinenSarakkeissa()) {
             return true;
         }
-        if (onkoSiirtoMahdollinenRiveilla()) {
-            return true;
+        return onkoSiirtoMahdollinenRiveilla();
+    }
+
+    /**
+     * Metodi käy läpi ruudukon sarakkeet ja tutkii onko millään niistä
+     * mahdollista tehdä siirto eli löytyykö mistään sarakkeesta vähintään kolme
+     * samanväristä ruutua peräkkäin tai löytyykö mistään sarakkeesta peräkkäin
+     * kaksi ruutua, jotka on värien puolesta mahdollista yhdistää
+     *
+     * @return Palauttaa true, jos edes jokin siirto on mahdollinen ja false,
+     * jos mahdollisia siirtoja ei ole
+     */
+    private boolean onkoSiirtoMahdollinenSarakkeissa() {
+        Koordinaatit k = new Koordinaatit(0, 0);
+        for (int i = 0; i < this.LEVEYS; i++) {
+            k.setX(i);
+            for (int j = 0; j < this.KORKEUS - 2; j++) {
+                k.setY(j);
+                if (this.ruudut[k.getX()][k.getY()].getVari().equals(this.ruudut[k.getX()][k.getY() + 1].getVari())
+                        && this.ruudut[k.getX()][k.getY()].getVari().equals(this.ruudut[k.getX()][k.getY() + 2].getVari())) {
+                    return true;
+                } else if (!this.ruudut[k.getX()][k.getY()].getVari().varienYhdiste(this.ruudut[k.getX()][k.getY() + 1].getVari()).equals(Vari.TYHJA)
+                        || !this.ruudut[k.getX()][k.getY() + 1].getVari().varienYhdiste(this.ruudut[k.getX()][k.getY() + 2].getVari()).equals(Vari.TYHJA)) {
+                    return true;
+                }
+            }
         }
         return false;
     }
@@ -198,70 +227,6 @@ public class Ruudukko {
     }
 
     /**
-     * Metodi käy läpi ruudukon sarakkeet ja tutkii onko millään niistä
-     * mahdollista tehdä siirto eli löytyykö mistään sarakkeesta vähintään kolme
-     * samanväristä ruutua peräkkäin tai löytyykö mistään sarakkeesta peräkkäin
-     * kaksi ruutua, jotka on värien puolesta mahdollista yhdistää
-     *
-     * @return Palauttaa true, jos edes jokin siirto on mahdollinen ja false,
-     * jos mahdollisia siirtoja ei ole
-     */
-    private boolean onkoSiirtoMahdollinenSarakkeissa() {
-        Koordinaatit k = new Koordinaatit(0, 0);
-        for (int i = 0; i < this.LEVEYS; i++) {
-            k.setX(i);
-            for (int j = 0; j < this.KORKEUS - 2; j++) {
-                k.setY(j);
-                if (this.ruudut[k.getX()][k.getY()].getVari().equals(this.ruudut[k.getX()][k.getY() + 1].getVari())
-                        && this.ruudut[k.getX()][k.getY()].getVari().equals(this.ruudut[k.getX()][k.getY() + 2].getVari())) {
-                    return true;
-                } else if (!this.ruudut[k.getX()][k.getY()].getVari().varienYhdiste(this.ruudut[k.getX()][k.getY() + 1].getVari()).equals(Vari.TYHJA)
-                        || !this.ruudut[k.getX()][k.getY() + 1].getVari().varienYhdiste(this.ruudut[k.getX()][k.getY() + 2].getVari()).equals(Vari.TYHJA)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Metodi liikuttaa annetuissa koordinaateissa olevaa ruutua yhden askelen
-     * annettuun suuntaan, jos liikuttaminen on mahdollista Siirto onnistuu
-     * vain, jos liikutettava ruutu ei ole tyhjä ja ruutu, johon ollaan
-     * liikkumassa on tyhjä tai jos liikutettavan ruudun ja kohderuudun värit
-     * ovat sellaiset, että ne voi yhdistää eli yhdiste on epätyhjä
-     *
-     * @param koordinaatit Kertoo mitä ruutua halutaan liikuttaa
-     * @param suunta Kertoo mihin suuntaan ruutua halutaan liikuttaa
-     */
-    private void liikutaRuutua(Koordinaatit koordinaatit, Suunta suunta) {
-        Ruutu eka = this.ruudut[koordinaatit.getX()][koordinaatit.getY()];
-        koordinaatit.liikuta(suunta);
-        Ruutu toka = this.ruudut[koordinaatit.getX()][koordinaatit.getY()];
-
-        if (!eka.getVari().equals(Vari.TYHJA) && toka.getVari().equals(Vari.TYHJA)) {
-            Vari vari = eka.getVari();
-            vaihdaVarit(eka, toka, vari);
-        } else if (!eka.getVari().varienYhdiste(toka.getVari()).equals(Vari.TYHJA)) {
-            Vari vari = eka.getVari().varienYhdiste(toka.getVari());
-            vaihdaVarit(eka, toka, vari);
-        }
-    }
-
-    /**
-     * Metodi vaihtaa kahden ruudun värit siten, että ensimmäisestä ruudusta
-     * tulee tyhjä ja toisesta ruudusta tulee annetun värinen
-     *
-     * @param eka Ruutu, josta halutaan tehdä tyhjä
-     * @param toka Ruutu, jonka väriksi halutaan asettaa annettu väri
-     * @param vari Väri, joka halutaan asettaa ruudun toka väriksi
-     */
-    private void vaihdaVarit(Ruutu eka, Ruutu toka, Vari vari) {
-        eka.setVari(Vari.TYHJA);
-        toka.setVari(vari);
-    }
-
-    /**
      * Metodi liikuttaa kaikkia ruudukon ruutuja annettuun suuntaan.
      * Liikutustapa riippuu annetusta suunnasta. Lopuksi ruudukosta poistetaan
      * kaikki kolmen tai useamman peräkkäisen samanvärisen ruudun jaksot.
@@ -285,24 +250,6 @@ public class Ruudukko {
             }
         }
         return poistaPerakkaisetSamat();
-    }
-
-    /**
-     * Metodi liikuttaa ruudukon ruutuja oikealle tai vasemmalle annetun suunnan
-     * mukaisesti
-     *
-     * @param suunta Kertoo liikutetaanko ruutuja oikealle vai vasemmalle
-     * @param koordinaatit Kertoo, mitä ruudukon riviä ollaan tällä hetkellä
-     * liikuttamassa
-     */
-    private void liikutaOikeaTaiVasen(Suunta suunta, Koordinaatit koordinaatit) {
-        for (int x = 0; x < this.LEVEYS; x++) {
-            if (suunta.equals(Suunta.OIKEA)) {
-                liikutaOikea(koordinaatit);
-            } else {
-                liikutaVasen(koordinaatit);
-            }
-        }
     }
 
     /**
@@ -350,6 +297,24 @@ public class Ruudukko {
     }
 
     /**
+     * Metodi liikuttaa ruudukon ruutuja oikealle tai vasemmalle annetun suunnan
+     * mukaisesti
+     *
+     * @param suunta Kertoo liikutetaanko ruutuja oikealle vai vasemmalle
+     * @param koordinaatit Kertoo, mitä ruudukon riviä ollaan tällä hetkellä
+     * liikuttamassa
+     */
+    private void liikutaOikeaTaiVasen(Suunta suunta, Koordinaatit koordinaatit) {
+        for (int x = 0; x < this.LEVEYS; x++) {
+            if (suunta.equals(Suunta.OIKEA)) {
+                liikutaOikea(koordinaatit);
+            } else {
+                liikutaVasen(koordinaatit);
+            }
+        }
+    }
+
+    /**
      * Metodi liikuttaa ruudukon tietyn rivin ruutuja oikealle
      *
      * @param koordinaatit Kertoo mitä riviä ollaan tällä hetkellä liikuttamassa
@@ -374,6 +339,43 @@ public class Ruudukko {
     }
 
     /**
+     * Metodi liikuttaa annetuissa koordinaateissa olevaa ruutua yhden askelen
+     * annettuun suuntaan, jos liikuttaminen on mahdollista Siirto onnistuu
+     * vain, jos liikutettava ruutu ei ole tyhjä ja ruutu, johon ollaan
+     * liikkumassa on tyhjä tai jos liikutettavan ruudun ja kohderuudun värit
+     * ovat sellaiset, että ne voi yhdistää eli yhdiste on epätyhjä
+     *
+     * @param koordinaatit Kertoo mitä ruutua halutaan liikuttaa
+     * @param suunta Kertoo mihin suuntaan ruutua halutaan liikuttaa
+     */
+    private void liikutaRuutua(Koordinaatit koordinaatit, Suunta suunta) {
+        Ruutu eka = this.ruudut[koordinaatit.getX()][koordinaatit.getY()];
+        koordinaatit.liikuta(suunta);
+        Ruutu toka = this.ruudut[koordinaatit.getX()][koordinaatit.getY()];
+
+        if (!eka.getVari().equals(Vari.TYHJA) && toka.getVari().equals(Vari.TYHJA)) {
+            Vari vari = eka.getVari();
+            vaihdaVarit(eka, toka, vari);
+        } else if (!eka.getVari().varienYhdiste(toka.getVari()).equals(Vari.TYHJA)) {
+            Vari vari = eka.getVari().varienYhdiste(toka.getVari());
+            vaihdaVarit(eka, toka, vari);
+        }
+    }
+
+    /**
+     * Metodi vaihtaa kahden ruudun värit siten, että ensimmäisestä ruudusta
+     * tulee tyhjä ja toisesta ruudusta tulee annetun värinen
+     *
+     * @param eka Ruutu, josta halutaan tehdä tyhjä
+     * @param toka Ruutu, jonka väriksi halutaan asettaa annettu väri
+     * @param vari Väri, joka halutaan asettaa ruudun toka väriksi
+     */
+    private void vaihdaVarit(Ruutu eka, Ruutu toka, Vari vari) {
+        eka.setVari(Vari.TYHJA);
+        toka.setVari(vari);
+    }
+
+    /**
      * Metodi lisää ruutuja poistettavien ruutujen listaan ja lopuksi tyhjentää
      * tämän listan.
      *
@@ -384,41 +386,6 @@ public class Ruudukko {
         sarakkeidenPerakkaisetSamat(poistettavatRuudut);
         rivienPerakkaisetSamat(poistettavatRuudut);
         return tyhjennaPoistettavatRuudut(poistettavatRuudut);
-    }
-
-    /**
-     * Metodi lisää peräkkäisten ruutujen listaan samalla rivillä peräkkäin
-     * sijaitsevat samanväriset ruudut ja siirtää nämä poistettavien ruutujen
-     * listaan jos niitä on tarpeeksi monta peräkkäin
-     *
-     * @param poistettavatRuudut Lista poistettavista ruuduista
-     */
-    private void rivienPerakkaisetSamat(ArrayList<Ruutu> poistettavatRuudut) {
-        koordinaatit = new Koordinaatit(0, 0);
-        ArrayList<Ruutu> perakkaisetRuudut = new ArrayList<>();
-        for (int i = 0; i < this.KORKEUS; i++) {
-            for (int j = 0; j < this.LEVEYS; j++) {
-                koordinaatit.setX(j);
-                koordinaatit.setY(i);
-                perakkaisetRuudut = perakkaisetSamatListaan(koordinaatit, perakkaisetRuudut, poistettavatRuudut);
-            }
-            perakkaisetPoistettaviksiJosRiittavanMontaSamaa(perakkaisetRuudut, poistettavatRuudut);
-            perakkaisetRuudut = new ArrayList<>();
-        }
-    }
-
-    /**
-     * Metodi tutkii peräkkäisten ruutujen listan ja jos se sisältää vähintään
-     * kolme ruutua, siirtää kyseiset ruudut poistettavien ruutujen listalle
-     *
-     * @param perakkaisetRuudut Sisältää ruudukossa peräkkäin sijaitsevia
-     * samanvärisiä ruutuja
-     * @param poistettavatRuudut Sisältää ruudut, jotka halutaan poistaa
-     */
-    private void perakkaisetPoistettaviksiJosRiittavanMontaSamaa(ArrayList<Ruutu> perakkaisetRuudut, ArrayList<Ruutu> poistettavatRuudut) {
-        if (perakkaisetRuudut.size() >= 3) {
-            poistettavatRuudut.addAll(perakkaisetRuudut);
-        }
     }
 
     /**
@@ -443,20 +410,24 @@ public class Ruudukko {
     }
 
     /**
-     * Metodi käy läpi poistettavien ruutujen listan ja tyhjentää sen ruudut.
-     * Poistettavista ruuduista saa pisteitä niiden värin perusteella
+     * Metodi lisää peräkkäisten ruutujen listaan samalla rivillä peräkkäin
+     * sijaitsevat samanväriset ruudut ja siirtää nämä poistettavien ruutujen
+     * listaan jos niitä on tarpeeksi monta peräkkäin
      *
      * @param poistettavatRuudut Lista poistettavista ruuduista
-     * @return Palauttaa poistettujen ruutujen värin perusteella määräytyvän
-     * pistemäärän
      */
-    private int tyhjennaPoistettavatRuudut(ArrayList<Ruutu> poistettavatRuudut) {
-        int pisteet = 0;
-        for (Ruutu ruutu : poistettavatRuudut) {
-            pisteet += ruutu.getVari().varinPisteet();
-            ruutu.setVari(Vari.TYHJA);
+    private void rivienPerakkaisetSamat(ArrayList<Ruutu> poistettavatRuudut) {
+        koordinaatit = new Koordinaatit(0, 0);
+        ArrayList<Ruutu> perakkaisetRuudut = new ArrayList<>();
+        for (int i = 0; i < this.KORKEUS; i++) {
+            for (int j = 0; j < this.LEVEYS; j++) {
+                koordinaatit.setX(j);
+                koordinaatit.setY(i);
+                perakkaisetRuudut = perakkaisetSamatListaan(koordinaatit, perakkaisetRuudut, poistettavatRuudut);
+            }
+            perakkaisetPoistettaviksiJosRiittavanMontaSamaa(perakkaisetRuudut, poistettavatRuudut);
+            perakkaisetRuudut = new ArrayList<>();
         }
-        return pisteet;
     }
 
     /**
@@ -479,5 +450,36 @@ public class Ruudukko {
             perakkaisetRuudut.add(ruutu);
         }
         return perakkaisetRuudut;
+    }
+
+    /**
+     * Metodi tutkii peräkkäisten ruutujen listan ja jos se sisältää vähintään
+     * kolme ruutua, siirtää kyseiset ruudut poistettavien ruutujen listalle
+     *
+     * @param perakkaisetRuudut Sisältää ruudukossa peräkkäin sijaitsevia
+     * samanvärisiä ruutuja
+     * @param poistettavatRuudut Sisältää ruudut, jotka halutaan poistaa
+     */
+    private void perakkaisetPoistettaviksiJosRiittavanMontaSamaa(ArrayList<Ruutu> perakkaisetRuudut, ArrayList<Ruutu> poistettavatRuudut) {
+        if (perakkaisetRuudut.size() >= 3) {
+            poistettavatRuudut.addAll(perakkaisetRuudut);
+        }
+    }
+
+    /**
+     * Metodi käy läpi poistettavien ruutujen listan ja tyhjentää sen ruudut.
+     * Poistettavista ruuduista saa pisteitä niiden värin perusteella
+     *
+     * @param poistettavatRuudut Lista poistettavista ruuduista
+     * @return Palauttaa poistettujen ruutujen värin perusteella määräytyvän
+     * pistemäärän
+     */
+    private int tyhjennaPoistettavatRuudut(ArrayList<Ruutu> poistettavatRuudut) {
+        int pisteet = 0;
+        for (Ruutu ruutu : poistettavatRuudut) {
+            pisteet += ruutu.getVari().varinPisteet();
+            ruutu.setVari(Vari.TYHJA);
+        }
+        return pisteet;
     }
 }

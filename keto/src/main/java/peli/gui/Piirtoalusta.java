@@ -22,15 +22,15 @@ import peli.keto.Peli;
  */
 public class Piirtoalusta extends JPanel implements Paivitettava {
 
-    private Peli peli;
-    private int ruudunLeveys;
+    private final Peli peli;
+    private final int ruudunLeveys;
     private Image alkuteksti;
     private Image tausta;
-    private Map<Vari, Image> kukat;
+    private final Map<Vari, Image> kukat;
 
     /**
      * Konstruktorille annetaan käynnissä oleva peli ja yhden peliruudukon
-     * ruudun leveys.
+     * ruudun leveys. Konstruktori myös lataa tarvittavat kuvat.
      *
      * @param peli Kertoo kyseisen pelin
      * @param ruudunLeveys Kertoo yhden peliruudukon ruudun leveyden
@@ -43,6 +43,9 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         this.setPreferredSize(new Dimension(501, 630));
     }
 
+    /**
+     * Metodi lataa pelissä tarvittavat kuvat. Kukat laitetaan konstruktorissa luotuun enumMapiin.
+     */
     private void lataaKuvat() {
         try {
             this.alkuteksti = ImageIO.read(this.getClass().getResource("/alkuteksti.png"));
@@ -96,10 +99,6 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
             for (int j = 0; j < peli.getRuudukko().getKorkeus(); j++) {
                 koordinaatit.setX(i);
                 koordinaatit.setY(j);
-//                g.setColor(peli.getRuudukko().getRuutu(koordinaatit).getVari().varinVari());
-//                g.fill3DRect(i * ruudunLeveys, j * ruudunLeveys, ruudunLeveys, ruudunLeveys, true);
-//                g.setColor(Color.LIGHT_GRAY);
-//                g.drawRect(i * ruudunLeveys, j * ruudunLeveys, ruudunLeveys, ruudunLeveys);
                 g.drawImage(kukat.get(peli.getRuudukko().getRuutu(koordinaatit).getVari()), koordinaatit.getX() * ruudunLeveys, koordinaatit.getY() * ruudunLeveys, this);
             }
         }
@@ -107,13 +106,11 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
 
     /**
      * Metodi huolehtii peliruudukon alla olevan palkin piirtämisestä. Palkki
-     * sisältää päivittyvän tiedon pisteistä.
+     * sisältää päivittyvän tiedon pelaajasta, pisteistä ja huipputuloksesta.
      *
      * @param g
      */
     private void piirraAlapalkki(Graphics g) {
-//        g.setColor(Color.LIGHT_GRAY);
-//        g.fillRect(0, 0, peli.getRuudukko().getLeveys() * ruudunLeveys, (peli.getRuudukko().getKorkeus() + 1) * ruudunLeveys);
         g.drawImage(tausta, 0, 0, this);
         g.setColor(Color.BLACK);
         g.setFont(new Font("a", Font.BOLD, 20));
@@ -137,6 +134,10 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         g.drawString("Se on loppu nyt", ruudunLeveys, ruudunLeveys * 2);
     }
 
+    /**
+     * Metodi huolehtii aloituskuvan piirtämisestä ennen kuin peli on aloitettu.
+     * @param g 
+     */
     private void piirraAlkukuva(Graphics g) {
         g.drawImage(tausta, 0, 0, this);
         g.drawImage(alkuteksti, 0, 0, this);

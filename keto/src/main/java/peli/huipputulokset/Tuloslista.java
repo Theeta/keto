@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+/**
+ * Tuloslista sisältää listan huipputuloksista. Luokassa on metodeja tämän listan käsittelyyn.
+ * @author noora
+ */
 public class Tuloslista {
 
-    private List<Tulos> lista;
-    private int listanPituus;
-    private File tiedosto;
+    private final List<Tulos> lista;
+    private final int listanPituus;
+    private final File tiedosto;
 
     public Tuloslista(int listanPituus, String tiedostopolku) {
         this.lista = new ArrayList<>();
@@ -24,7 +26,6 @@ public class Tuloslista {
         try {
             lataaLista(this.tiedosto);
         } catch (FileNotFoundException ex) {
-            System.out.println("tiedostoa ei löytynyt");
         }
     }
 
@@ -32,6 +33,11 @@ public class Tuloslista {
         return lista;
     }
 
+    /**
+     * Metodi lataa tulostiedoston ja lisää sen sisällön listalle
+     * @param tiedosto
+     * @throws FileNotFoundException 
+     */
     private void lataaLista(File tiedosto) throws FileNotFoundException {
         Scanner lukija = new Scanner(tiedosto);
         String rivi = null;
@@ -40,13 +46,16 @@ public class Tuloslista {
             try {
                 String[] palat = rivi.split(":");
                 this.lisaaListalle(palat[0], Integer.parseInt(palat[1]));
-            } catch (Exception e) {
-                e.printStackTrace();
-                //System.out.println("joo ei toimi tuloslista");
+            } catch (NumberFormatException e) {
             }
         }
     }
 
+    /**
+     * Metodin avulla lisätään uusi tulos tuloslistaan
+     * @param nimi
+     * @param pisteet 
+     */
     public void lisaaListalle(String nimi, int pisteet) {
         Tulos uusiTulos = new Tulos(nimi, pisteet);
         this.lista.add(uusiTulos);
@@ -58,15 +67,17 @@ public class Tuloslista {
         tallennaLista(this.tiedosto);
     }
 
+    /**
+     * Metodin avulla tallennetaan tuloslista tiedostoon
+     * @param tiedosto 
+     */
     private void tallennaLista(File tiedosto) {
-        System.out.println("Tallennetaan lista");
         try {
-            FileWriter kirjoittaja = new FileWriter(tiedosto);
-            //kirjoittaja.write("# Tää on highscorelista, ei oo kiva jos muokkaat\n");
-            for (Tulos tulos : lista) {
-                kirjoittaja.write(tulos.getNimi() + ":" + tulos.getPisteet() + "\n");
+            try (FileWriter kirjoittaja = new FileWriter(tiedosto)) {
+                for (Tulos tulos : lista) {
+                    kirjoittaja.write(tulos.getNimi() + ":" + tulos.getPisteet() + "\n");
+                }
             }
-            kirjoittaja.close();
         } catch (IOException ex) {
         }
 
