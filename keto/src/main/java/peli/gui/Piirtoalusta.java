@@ -99,6 +99,10 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
             for (int j = 0; j < peli.getRuudukko().getKorkeus(); j++) {
                 koordinaatit.setX(i);
                 koordinaatit.setY(j);
+                if (peli.getRuudukko().getRuutu(koordinaatit) == null) {
+                    g.drawImage(kukat.get(Vari.TYHJA), koordinaatit.getX() * ruudunLeveys, koordinaatit.getY() * ruudunLeveys, this);
+                    continue;
+                }
                 g.drawImage(kukat.get(peli.getRuudukko().getRuutu(koordinaatit).getVari()), koordinaatit.getX() * ruudunLeveys, koordinaatit.getY() * ruudunLeveys, this);
             }
         }

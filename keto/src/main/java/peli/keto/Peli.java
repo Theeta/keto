@@ -2,7 +2,7 @@ package peli.keto;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import peli.domain.Ruudukko;
+import peli.domain.Pelilogiikka;
 import peli.domain.Suunta;
 import peli.domain.Vari;
 import peli.gui.Paivitettava;
@@ -15,7 +15,7 @@ import peli.huipputulokset.Tuloslista;
  */
 public class Peli implements ActionListener {
 
-    private Ruudukko ruudut;
+    private Pelilogiikka ruudut;
     private Paivitettava paivitettava;
     private final Tuloslista tuloslista;
     private boolean paattynyt;
@@ -39,7 +39,7 @@ public class Peli implements ActionListener {
     public Peli(int leveys, int korkeus, String tiedostopolku) {
         this.leveys = leveys;
         this.korkeus = korkeus;
-        this.ruudut = new Ruudukko(leveys, korkeus);
+        this.ruudut = new Pelilogiikka(leveys, korkeus);
         ruudut.lisaaSallittuVari(Vari.SININEN);
         ruudut.lisaaSallittuVari(Vari.PUNAINEN);
         this.pisteet = 0;
@@ -112,7 +112,7 @@ public class Peli implements ActionListener {
      * @param nimi Pelaajan antama nimi
      */
     public void uusiPeli(String nimi) {
-        this.ruudut = new Ruudukko(leveys, korkeus);
+        this.ruudut = new Pelilogiikka(leveys, korkeus);
         ruudut.lisaaSallittuVari(Vari.SININEN);
         ruudut.lisaaSallittuVari(Vari.PUNAINEN);
         this.pelaajanNimi = nimi;
@@ -126,7 +126,7 @@ public class Peli implements ActionListener {
         this.paivitettava = paivitettava;
     }
 
-    public Ruudukko getRuudukko() {
+    public Pelilogiikka getRuudukko() {
         return this.ruudut;
     }
 

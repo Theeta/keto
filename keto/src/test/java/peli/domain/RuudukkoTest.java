@@ -30,19 +30,19 @@ public class RuudukkoTest {
 
     @Test
     public void getLeveysPalauttaaRuudukonLeveyden() {
-        Ruudukko ruudukko = new Ruudukko(2, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(2, 3);
         assertEquals(2, ruudukko.getLeveys());
     }
 
     @Test
     public void getKorkeusPalauttaaRuudukonKorkeuden() {
-        Ruudukko ruudukko = new Ruudukko(2, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(2, 3);
         assertEquals(3, ruudukko.getKorkeus());
     }
 
     @Test
     public void getRuutuPalauttaaHalutussaPaikassaOlevanRuudun() {
-        Ruudukko ruudukko = new Ruudukko(2, 2);
+        Pelilogiikka ruudukko = new Pelilogiikka(2, 2);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Koordinaatit koordinaatit = new Koordinaatit(1, 1);
         ruudukko.setRuutu(ruutu, koordinaatit);
@@ -51,7 +51,7 @@ public class RuudukkoTest {
 
     @Test
     public void setRuutuAsettaaAnnetunRuudunHaluttuunPaikkaan() {
-        Ruudukko ruudukko = new Ruudukko(2, 2);
+        Pelilogiikka ruudukko = new Pelilogiikka(2, 2);
         Ruutu ruutu = new Ruutu(Vari.SININEN);
         Koordinaatit koordinaatit = new Koordinaatit(1, 1);
         ruudukko.setRuutu(ruutu, koordinaatit);
@@ -60,17 +60,17 @@ public class RuudukkoTest {
 
     @Test
     public void poistaRuutuMuuttaaAnnetunRuudunTyhjaksi() {
-        Ruudukko ruudukko = new Ruudukko(2, 2);
+        Pelilogiikka ruudukko = new Pelilogiikka(2, 2);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Koordinaatit koordinaatit = new Koordinaatit(1, 1);
         ruudukko.setRuutu(ruutu, koordinaatit);
         ruudukko.poistaRuutu(koordinaatit);
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(koordinaatit).getVari());
+        assertNull(ruudukko.getRuutu(koordinaatit));
     }
 
     @Test
     public void liikutaKaikkiRuudutAlasLiikuttaaYhdenRuudunAlas() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Koordinaatit koordinaatit = new Koordinaatit(0, 0);
         Koordinaatit loppuKoordinaatit = new Koordinaatit(0, 2);
@@ -81,7 +81,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutAlasLiikuttaaKaksiPaallekkaistaRuutuaAlas() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.LIILA);
         Koordinaatit koordinaatit1 = new Koordinaatit(0, 0);
@@ -97,7 +97,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutAlasLiikuttaaKaksiVierekkaistaRuutuaAlas() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         ruudukko.setRuutu(ruutu, new Koordinaatit(0, 0));
@@ -109,7 +109,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutAlasLiikuttaaKaksiPaallekkaistaRuutuaAlasJaYhdistaaNe() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         Koordinaatit koordinaatit1 = new Koordinaatit(0, 0);
@@ -119,13 +119,13 @@ public class RuudukkoTest {
         ruudukko.setRuutu(ruutu, koordinaatit1);
         ruudukko.setRuutu(ruutu2, koordinaatit2);
         ruudukko.liikutaKaikkiRuudut(Suunta.ALAS);
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(loppukoordinaatit1).getVari());
+        assertNull(ruudukko.getRuutu(loppukoordinaatit1));
         assertEquals(Vari.LIILA, ruudukko.getRuutu(loppukoordinaatit2).getVari());
     }
 
     @Test
     public void liikutaKaikkiRuudutYlosLiikuttaaYhdenRuudunYlos() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Koordinaatit koordinaatit = new Koordinaatit(0, 2);
         Koordinaatit loppuKoordinaatit = new Koordinaatit(0, 0);
@@ -136,7 +136,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutYlosLiikuttaaKaksiPaallekkaistaRuutuaYlos() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.LIILA);
         Koordinaatit koordinaatit1 = new Koordinaatit(0, 1);
@@ -152,7 +152,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutYlosLiikuttaaKaksiVierekkaistaRuutuaYlos() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         ruudukko.setRuutu(ruutu, new Koordinaatit(0, 2));
@@ -164,7 +164,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutYlosLiikuttaaKaksiPaallekkaistaRuutuaYlosJaYhdistaaNe() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         Koordinaatit koordinaatit1 = new Koordinaatit(0, 1);
@@ -175,12 +175,12 @@ public class RuudukkoTest {
         ruudukko.setRuutu(ruutu2, koordinaatit2);
         ruudukko.liikutaKaikkiRuudut(Suunta.YLOS);
         assertEquals(Vari.LIILA, ruudukko.getRuutu(loppukoordinaatit1).getVari());
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(loppukoordinaatit2).getVari());
+        assertNull(ruudukko.getRuutu(loppukoordinaatit2));
     }
 
     @Test
     public void liikutaKaikkiRuudutVasenLiikuttaaYhdenRuudunVasemmalle() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Koordinaatit koordinaatit = new Koordinaatit(2, 0);
         Koordinaatit loppuKoordinaatit = new Koordinaatit(0, 0);
@@ -191,7 +191,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutVasenLiikuttaaKaksiPaallekkaistaRuutuaVasemmalle() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         Koordinaatit koordinaatit1 = new Koordinaatit(2, 0);
@@ -207,7 +207,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutVasenLiikuttaaKaksiVierekkaistaRuutuaVasemmalle() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.LIILA);
         ruudukko.setRuutu(ruutu, new Koordinaatit(1, 0));
@@ -219,19 +219,19 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutVasenLiikuttaaKaksiVierekkaistaRuutuaVasemmalleJaYhdistaaNe() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         ruudukko.setRuutu(ruutu, new Koordinaatit(1, 0));
         ruudukko.setRuutu(ruutu2, new Koordinaatit(2, 0));
         ruudukko.liikutaKaikkiRuudut(Suunta.VASEN);
         assertEquals(Vari.LIILA, ruudukko.getRuutu(new Koordinaatit(0, 0)).getVari());
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(1, 0)).getVari());
+        assertNull(ruudukko.getRuutu(new Koordinaatit(1, 0)));
     }
 
     @Test
     public void liikutaKaikkiRuudutOikeaLiikuttaaYhdenRuudunOikealle() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Koordinaatit koordinaatit = new Koordinaatit(0, 0);
         Koordinaatit loppuKoordinaatit = new Koordinaatit(2, 0);
@@ -242,7 +242,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutOikeaLiikuttaaKaksiPaallekkaistaRuutuaOikealle() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         Koordinaatit koordinaatit1 = new Koordinaatit(0, 0);
@@ -258,7 +258,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutOikeaLiikuttaaKaksiVierekkaistaRuutuaOikealle() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.LIILA);
         ruudukko.setRuutu(ruutu, new Koordinaatit(0, 0));
@@ -270,19 +270,19 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaKaikkiRuudutOikeaLiikuttaaKaksiVierekkaistaRuutuaOikealleJaYhdistaaNe() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         ruudukko.setRuutu(ruutu, new Koordinaatit(0, 0));
         ruudukko.setRuutu(ruutu2, new Koordinaatit(1, 0));
         ruudukko.liikutaKaikkiRuudut(Suunta.OIKEA);
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(1, 0)).getVari());
+        assertNull(ruudukko.getRuutu(new Koordinaatit(1, 0)));
         assertEquals(Vari.LIILA, ruudukko.getRuutu(new Koordinaatit(2, 0)).getVari());
     }
 
     @Test
     public void liikutaNiinEttaKolmeSamaaSarakkeessa() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu3 = new Ruutu(Vari.PUNAINEN);
@@ -290,14 +290,14 @@ public class RuudukkoTest {
         ruudukko.setRuutu(ruutu2, new Koordinaatit(0, 1));
         ruudukko.setRuutu(ruutu3, new Koordinaatit(1, 2));
         ruudukko.liikutaKaikkiRuudut(Suunta.OIKEA);
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(2, 0)).getVari());
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(2, 1)).getVari());
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(2, 2)).getVari());
+        assertNull(ruudukko.getRuutu(new Koordinaatit(2, 0)));
+        assertNull(ruudukko.getRuutu(new Koordinaatit(2, 1)));
+        assertNull(ruudukko.getRuutu(new Koordinaatit(2, 2)));
     }
 
     @Test
     public void liikutaNiinEttaKolmeEriaSarakkeessa() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         Ruutu ruutu3 = new Ruutu(Vari.PUNAINEN);
@@ -312,7 +312,7 @@ public class RuudukkoTest {
 
     @Test
     public void liikutaNiinEttaKolmeSamaaRivilla() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu3 = new Ruutu(Vari.PUNAINEN);
@@ -320,14 +320,14 @@ public class RuudukkoTest {
         ruudukko.setRuutu(ruutu2, new Koordinaatit(1, 0));
         ruudukko.setRuutu(ruutu3, new Koordinaatit(2, 1));
         ruudukko.liikutaKaikkiRuudut(Suunta.ALAS);
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(0, 2)).getVari());
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(1, 2)).getVari());
-        assertEquals(Vari.TYHJA, ruudukko.getRuutu(new Koordinaatit(2, 2)).getVari());
+        assertNull(ruudukko.getRuutu(new Koordinaatit(0, 2)));
+        assertNull(ruudukko.getRuutu(new Koordinaatit(1, 2)));
+        assertNull(ruudukko.getRuutu(new Koordinaatit(2, 2)));
     }
 
     @Test
     public void liikutaNiinEttaKolmeEriaRivilla() {
-        Ruudukko ruudukko = new Ruudukko(3, 3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3, 3);
         Ruutu ruutu = new Ruutu(Vari.PUNAINEN);
         Ruutu ruutu2 = new Ruutu(Vari.SININEN);
         Ruutu ruutu3 = new Ruutu(Vari.PUNAINEN);
@@ -342,14 +342,14 @@ public class RuudukkoTest {
     
     @Test
     public void lisaaSallittuvariLisaaVarinListaan() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         assertEquals(1, ruudukko.getSallitutVarit().size());
     }
     
     @Test
     public void lisaaSallittuvariEiLisaaSamaaVariaListaan() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         assertEquals(1, ruudukko.getSallitutVarit().size());
@@ -357,7 +357,7 @@ public class RuudukkoTest {
     
     @Test
     public void lisaaSallittuvariLisaaUseampiaVarejaListaan() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         ruudukko.lisaaSallittuVari(Vari.SININEN);
         assertEquals(2, ruudukko.getSallitutVarit().size());
@@ -365,13 +365,13 @@ public class RuudukkoTest {
     
     @Test
     public void sallittujenVarienListaOnTyhjaJosVarejaEiOleLisatty() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         assertEquals(0, ruudukko.getSallitutVarit().size());
     }
     
     @Test
     public void arvoUusiRuutuArpooTyhjaanRuudukkoonSallitunVarisenRuudun() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         ruudukko.arvoUusiRuutu();
         Koordinaatit koordinaatit = new Koordinaatit(0,0);
@@ -380,7 +380,7 @@ public class RuudukkoTest {
             for (int j = 0; j < 3; j++){
                 koordinaatit.setX(j);
                 koordinaatit.setY(i);
-                if (ruudukko.getRuutu(koordinaatit).getVari().equals(Vari.PUNAINEN)){
+                if (ruudukko.getRuutu(koordinaatit) != null && ruudukko.getRuutu(koordinaatit).getVari().equals(Vari.PUNAINEN)){
                     loytyy = true;
                 }
             }
@@ -390,7 +390,7 @@ public class RuudukkoTest {
     
     @Test
     public void arvoUusiRuutuArpooUseampiaRuutujaSamaanRuudukkoon() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         ruudukko.arvoUusiRuutu();
         ruudukko.arvoUusiRuutu();
@@ -400,7 +400,7 @@ public class RuudukkoTest {
             for (int j = 0; j < 3; j++){
                 koordinaatit.setX(j);
                 koordinaatit.setY(i);
-                if (ruudukko.getRuutu(koordinaatit).getVari().equals(Vari.PUNAINEN)){
+                if (ruudukko.getRuutu(koordinaatit) != null && ruudukko.getRuutu(koordinaatit).getVari().equals(Vari.PUNAINEN)){
                     arvottujaRuutuja++;
                 }
             }
@@ -410,7 +410,7 @@ public class RuudukkoTest {
     
     @Test
     public void onkoRuudukkoTaynnaToimiiKunRuudukkoEiOleTaynna() {
-        Ruudukko ruudukko = new Ruudukko(2,2);
+        Pelilogiikka ruudukko = new Pelilogiikka(2,2);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         for (int i=0; i<3; i++){
             ruudukko.arvoUusiRuutu();
@@ -420,7 +420,7 @@ public class RuudukkoTest {
     
     @Test
     public void onkoRuudukkoTaynnaToimiiKunRuudukkoOnTaynna() {
-        Ruudukko ruudukko = new Ruudukko(2,2);
+        Pelilogiikka ruudukko = new Pelilogiikka(2,2);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         for (int i=0; i<5; i++){
             ruudukko.arvoUusiRuutu();
@@ -430,14 +430,14 @@ public class RuudukkoTest {
     
     @Test
     public void onkoRuudukkoTaynnaToimiiKunRuudukkoOnTyhja() {
-        Ruudukko ruudukko = new Ruudukko(2,2);
+        Pelilogiikka ruudukko = new Pelilogiikka(2,2);
         ruudukko.lisaaSallittuVari(Vari.PUNAINEN);
         assertEquals(false, ruudukko.onkoRuudukkoTaynna());
     }
     
     @Test
     public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenRivillaYhdistamisenTakia() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         Ruutu pr = new Ruutu(Vari.PUNAINEN);
         Ruutu sr = new Ruutu(Vari.SININEN);
         ruudukko.setRuutu(pr, new Koordinaatit(0,0));
@@ -448,7 +448,7 @@ public class RuudukkoTest {
     
     @Test
     public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenSarakkeessaYhdistamisenTakia() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         Ruutu pr = new Ruutu(Vari.PUNAINEN);
         Ruutu sr = new Ruutu(Vari.SININEN);
         ruudukko.setRuutu(pr, new Koordinaatit(0,0));
@@ -459,7 +459,7 @@ public class RuudukkoTest {
     
     @Test
     public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenRivillaPoistonTakia() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         Ruutu pr = new Ruutu(Vari.PUNAINEN);
         ruudukko.setRuutu(pr, new Koordinaatit(0,0));
         ruudukko.setRuutu(pr, new Koordinaatit(1,0));
@@ -469,7 +469,7 @@ public class RuudukkoTest {
     
     @Test
     public void onkoSiirtoMahdollinenToimiiKunSiirtoOnMahdollinenSarakkeessaPoistonTakia() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         Ruutu pr = new Ruutu(Vari.PUNAINEN);
         ruudukko.setRuutu(pr, new Koordinaatit(0,0));
         ruudukko.setRuutu(pr, new Koordinaatit(0,1));
@@ -479,7 +479,7 @@ public class RuudukkoTest {
     
     @Test
     public void onkoSiirtoMahdollinenToimiiKunSiirtoEiOleMahdollinen() {
-        Ruudukko ruudukko = new Ruudukko(3,3);
+        Pelilogiikka ruudukko = new Pelilogiikka(3,3);
         Ruutu lr = new Ruutu(Vari.LIILA);
         Ruutu sr = new Ruutu(Vari.SININEN);
         ruudukko.setRuutu(lr, new Koordinaatit(0,0));
