@@ -1,9 +1,10 @@
 package peli.domain;
 
 /**
- * Luokkan olioita käytetään kappaleen sijainnin ilmaisemiseen kaksiuloitteisessa koordinaatistossa
- * ja se sisältää metodeja tämän paikkatiedon käsittelyyn
- * 
+ * Luokkan olioita käytetään kappaleen sijainnin ilmaisemiseen
+ * kaksiuloitteisessa koordinaatistossa ja se sisältää metodeja tämän
+ * paikkatiedon käsittelyyn
+ *
  * @author noora
  */
 public class Koordinaatit {
@@ -12,13 +13,17 @@ public class Koordinaatit {
     private int y;
 
     /**
-     * 
+     *
      * @param x x-koordinaatti olion luontihetkellä
      * @param y y-koordinaatti olion luontihetkellä
      */
     public Koordinaatit(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Koordinaatit teeKopio() {
+        return new Koordinaatit(this.x, this.y);
     }
 
     public void setX(int x) {
@@ -38,7 +43,9 @@ public class Koordinaatit {
     }
 
     /**
-     * Metodi muuttaa kappaleen koodinaatteja siten, että se liikkuu parametrina annettuun suuntaan
+     * Metodi muuttaa kappaleen koodinaatteja siten, että se liikkuu parametrina
+     * annettuun suuntaan
+     *
      * @param suunta Kertoo mihin suuntaan halutaan liikkua
      */
     public void liikuta(Suunta suunta) {
@@ -57,4 +64,35 @@ public class Koordinaatit {
                 break;
         }
     }
+
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 43 * hash + this.x;
+        hash = 43 * hash + this.y;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Koordinaatit other = (Koordinaatit) obj;
+        if (this.x != other.x) {
+            return false;
+        }
+        if (this.y != other.y) {
+            return false;
+        }
+        return true;
+    }
+
 }
